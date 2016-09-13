@@ -40,10 +40,10 @@
 		5ABC0129351A78D62263C624 /* Pods-AppChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppChat/Pods-AppChat.debug.xcconfig"; sourceTree = "<group>"; };
 		6852B09B1D87D5DE00B68763 /* AppChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6852B09F1D87D5DE00B68763 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6852B0A11D87D5DE00B68763 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		6852B0A21D87D5DE00B68763 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6852B0A41D87D5DE00B68763 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		6852B0A51D87D5DE00B68763 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6852B0A11D87D5DE00B68763 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../AppDelegate.h; sourceTree = "<group>"; };
+		6852B0A21D87D5DE00B68763 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../AppDelegate.m; sourceTree = "<group>"; };
+		6852B0A41D87D5DE00B68763 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = ../ViewController.h; sourceTree = "<group>"; };
+		6852B0A51D87D5DE00B68763 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = ../ViewController.m; sourceTree = "<group>"; };
 		6852B0A81D87D5DE00B68763 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6852B0AA1D87D5DE00B68763 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6852B0AD1D87D5DE00B68763 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -116,13 +116,10 @@
 		6852B09D1D87D5DE00B68763 /* AppChat */ = {
 			isa = PBXGroup;
 			children = (
-				6852B0A11D87D5DE00B68763 /* AppDelegate.h */,
-				6852B0A21D87D5DE00B68763 /* AppDelegate.m */,
-				6852B0A41D87D5DE00B68763 /* ViewController.h */,
-				6852B0A51D87D5DE00B68763 /* ViewController.m */,
-				6852B0A71D87D5DE00B68763 /* Main.storyboard */,
+				CA2F1F171D87E26F00090C9A /* Modal */,
+				CA2F1F181D87E26F00090C9A /* View */,
+				CA2F1F161D87E25400090C9A /* Controller */,
 				6852B0AA1D87D5DE00B68763 /* Assets.xcassets */,
-				6852B0AC1D87D5DE00B68763 /* LaunchScreen.storyboard */,
 				6852B0AF1D87D5DE00B68763 /* Info.plist */,
 				6852B09E1D87D5DE00B68763 /* Supporting Files */,
 			);
@@ -163,6 +160,33 @@
 			);
 			name = Pods;
 			sourceTree = "<group>";
+		};
+		CA2F1F161D87E25400090C9A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6852B0A11D87D5DE00B68763 /* AppDelegate.h */,
+				6852B0A21D87D5DE00B68763 /* AppDelegate.m */,
+				6852B0A41D87D5DE00B68763 /* ViewController.h */,
+				6852B0A51D87D5DE00B68763 /* ViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CA2F1F171D87E26F00090C9A /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modal;
+			sourceTree = SOURCE_ROOT;
+		};
+		CA2F1F181D87E26F00090C9A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6852B0A71D87D5DE00B68763 /* Main.storyboard */,
+				6852B0AC1D87D5DE00B68763 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -389,6 +413,7 @@
 				6852B0A81D87D5DE00B68763 /* Base */,
 			);
 			name = Main.storyboard;
+			path = ../AppChat;
 			sourceTree = "<group>";
 		};
 		6852B0AC1D87D5DE00B68763 /* LaunchScreen.storyboard */ = {
@@ -397,6 +422,7 @@
 				6852B0AD1D87D5DE00B68763 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = ../AppChat;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -31,27 +31,41 @@
     
     //body
     NSMutableDictionary * dic = [[NSMutableDictionary alloc]init];
-    [dic setObject:body.username forKey:@"username"];
-    [dic setObject:body.password forKey:@"password"];
+    [dic setObject:@"aabccdef4@gmail.com" forKey:@"email"];
+    [dic setObject:@"Aa12345" forKey:@"password"];
+
 
     NSData *dicBody = [NSJSONSerialization dataWithJSONObject:dic options:0 error:nil];
-    request.HTTPBody = dicBody;
+    request.HTTPBody = dicBody ;
     
-//    NSMutableDictionary *respondData = [NSJSONSerialization JSONObjectWithData:body options:NSJSONReadingMutableContainers error:nil];
-//    
-//    NSURLResponse *response;
-//    NSError *error;
-//    
-//    NSData *aData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+
+//    [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+//        
+////        dispatch_async(dispatch_get_main_queue(), ^{
+////            if(!error && data) {
+////                NSDictionary *jsonArray = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error:nil];
+////                NSMutableDictionary *results = [jsonArray objectForKey:@"results"];
+//////                NSString * username = [jsonArray objectForKey:@"username"];
+//////                NSString * password = [jsonArray objectForKey:@"password"];
+//////                NSLog(@"Username :%@, Password :%@",username,password);
+////                NSLog(@"");
+////            }
+//        
+//            // Other Case, Failed
+////        });
+//        NSDictionary *jsonArray = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error:nil];
+//        NSMutableDictionary *results = [jsonArray objectForKey:@"results"];
+//         NSLog(@"");
+//        
+//    }] resume];
+    
     
     void (^successCallback)(id data) = ^(id data) {
         NSMutableDictionary *respondData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-        if(respondData) {
-            BOOL serviceSuccess = [[respondData objectForKey:@"success"] boolValue];
-        }
-        // Other Case Error
+        NSMutableDictionary *results = [respondData objectForKey:@"results"];
+        NSLog(@"");
+        
     };
-
     
     [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
@@ -62,9 +76,9 @@
                     NSInteger code = httpResponse.statusCode;
                     if(code == 200) {
                         successCallback(data);
+                        
                     } else {
                         // Reset App and reLogin
-
                         return;
                     }
                 }

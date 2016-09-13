@@ -54,9 +54,9 @@
 }
 - (IBAction)onClickedLogin:(UIButton *)btn {
     UserDto * userDto = [[UserDto alloc]init];
-    userDto.username = @"aabccdef3@gmail.com";
+    userDto.username = @"aabccdef4@gmail.com";
     userDto.password = @"Aa12345";
-    LoginDto * loginDto = [API getLoginDtoprocessAPI:@"52.221.225.151:3000/user/login" method:@"POST" header:nil body:userDto];
+    LoginDto * loginDto = [API getLoginDtoprocessAPI:@"http://52.221.225.151:3000/user/login" method:@"POST" header:nil body:userDto];
     NSLog(@"%@",loginDto.username);
 }
 

@@ -10,21 +10,20 @@
 
 @implementation UserDto
 
-- (id)initWithData: (NSDictionary * )dic {
-    self = [super init];
+- (UserDto*)initWithData: (NSDictionary * )dic {
+    UserDto * data = [[UserDto alloc]init];
+    data.idUser = [dic objectForKey:@"_id"];
+    data.avatar = [dic objectForKey:@"avatar"];
+    data.background = [dic objectForKey:@"background"];
+    data.birthday = [dic objectForKey:@"birthday"];
+    data.email = [dic objectForKey:@"email"];
+    data.phone = [dic objectForKey:@"phone"];
+    data.gender = [dic objectForKey:@"gender"];
     
-    _idUser = [dic objectForKey:@"_id"];
-    _avatar = [dic objectForKey:@"avatar"];
-    _background = [dic objectForKey:@"background"];
-    _birthday = [dic objectForKey:@"birthday"];
-    _email = [dic objectForKey:@"email"];
-    _phone = [dic objectForKey:@"phone"];
-    _gender = [dic objectForKey:@"gender"];
-    
-    return self;
+    return data;
 }
 
-- (NSDictionary *)getJSONOject {
+- (NSDictionary *)getJSONObject {
     NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
     
     [dic setObject:_idUser forKey:@"_id"];

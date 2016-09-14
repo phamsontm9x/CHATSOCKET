@@ -18,6 +18,7 @@
 @property (nonatomic ,strong) NSString *phone;
 @property (nonatomic ,strong) NSString *gender;
 
+- (UserDto *) initWithData:(NSDictionary*)dic;
 - (NSDictionary*) getJSONObject;
 
 @end

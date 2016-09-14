@@ -55,7 +55,7 @@
                                                                            options:NSJSONReadingMutableContainers
                                                                              error:nil];
         NSMutableDictionary *results = [respondData objectForKey:@"results"];
-        NSLog(@"");
+        callback(YES,results);
         
     };
     

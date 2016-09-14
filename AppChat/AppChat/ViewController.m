@@ -58,9 +58,9 @@
     LoginDto * loginDto = [[LoginDto alloc]init];
     loginDto.email = @"aabccdef4@gmail.com";
     loginDto.password = @"Aa12345";
-    [API getLoginDtoprocessAPI:server method:@"POST" header:nil body:loginDto callback:^(BOOL success, UserDto* data) {
+    [API getLoginDtoprocessAPI:server method:@"POST" header:nil body:loginDto callback:^(BOOL success, id data) {
         if(success) {
-            NSLog(@"%@",data.email);
+            NSLog(@"");
         }
     }];
     NSLog(@"");

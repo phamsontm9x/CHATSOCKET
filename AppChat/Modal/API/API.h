@@ -14,7 +14,7 @@
 
 @interface API : NSObject
 
-+ (LoginDto *)getLoginDtoprocessAPI:(NSString* )route
++ (void)getLoginDtoprocessAPI:(NSString* )route
                              method:(NSString* )method
                              header:(NSDictionary*)headers
                                body:(UserDto*)body;

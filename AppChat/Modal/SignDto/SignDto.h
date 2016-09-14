@@ -10,4 +10,11 @@
 
 @interface SignDto : NSObject
 
+@property (nonatomic ,strong) NSString * email;
+@property (nonatomic ,strong) NSString * password;
+@property (nonatomic ,strong) NSString * phone;
+@property (nonatomic ,strong) NSString * image;
+@property (nonatomic ,strong) NSString * birthday;
+@property (nonatomic ,strong) NSString * gender;
+
 @end

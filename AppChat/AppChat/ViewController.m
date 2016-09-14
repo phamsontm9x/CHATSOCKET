@@ -56,8 +56,8 @@
     UserDto * userDto = [[UserDto alloc]init];
     userDto.username = @"aabccdef4@gmail.com";
     userDto.password = @"Aa12345";
-    LoginDto * loginDto = [API getLoginDtoprocessAPI:@"http://52.221.225.151:3000/user/login" method:@"POST" header:nil body:userDto];
-    NSLog(@"%@",loginDto.username);
+    [API getLoginDtoprocessAPI:@"http://52.221.225.151:3000/user/login" method:@"POST" header:nil body:userDto];
+    NSLog(@"");
 }
 
 @end

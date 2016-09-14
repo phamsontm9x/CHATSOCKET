@@ -13,4 +13,6 @@
 @property (nonatomic ,strong) NSString * email;
 @property (nonatomic ,strong) NSString * password;
 
+- (NSDictionary*) getJSONObject;
+
 @end

@@ -14,6 +14,8 @@
 #import "LoginDto.h"
 #import "SignDto.h"
 
+#define server @"http://52.221.225.151:3000/user/login"
+
 
 @interface ViewController ()
 
@@ -53,10 +55,14 @@
 
 }
 - (IBAction)onClickedLogin:(UIButton *)btn {
-    UserDto * userDto = [[UserDto alloc]init];
-    userDto.username = @"aabccdef4@gmail.com";
-    userDto.password = @"Aa12345";
-    [API getLoginDtoprocessAPI:@"http://52.221.225.151:3000/user/login" method:@"POST" header:nil body:userDto];
+    LoginDto * loginDto = [[LoginDto alloc]init];
+    loginDto.email = @"aabccdef4@gmail.com";
+    loginDto.password = @"Aa12345";
+    [API getLoginDtoprocessAPI:server method:@"POST" header:nil body:loginDto callback:^(BOOL success, UserDto* data) {
+        if(success) {
+            NSLog(@"%@",data.email);
+        }
+    }];
     NSLog(@"");
 }
 

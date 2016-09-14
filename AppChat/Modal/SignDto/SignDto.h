@@ -17,4 +17,6 @@
 @property (nonatomic ,strong) NSString * birthday;
 @property (nonatomic ,strong) NSString * gender;
 
+- (NSDictionary*) getJSONObject;
+
 @end

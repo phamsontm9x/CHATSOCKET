@@ -12,11 +12,16 @@
 #import "UserDto.h"
 #import "SignDto.h"
 
+typedef void (^APICallback)(BOOL success, id data);
+
 @interface API : NSObject
+
 
 + (void)getLoginDtoprocessAPI:(NSString* )route
                              method:(NSString* )method
                              header:(NSDictionary*)headers
-                               body:(UserDto*)body;
+                               body:(LoginDto*)body callback:(APICallback)callback;
+
+
 
 @end

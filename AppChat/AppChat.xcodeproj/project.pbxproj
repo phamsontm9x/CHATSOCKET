@@ -21,6 +21,7 @@
 		CA22DCC41D88587600D6F7C0 /* UserDto.m in Sources */ = {isa = PBXBuildFile; fileRef = CA22DCC31D88587600D6F7C0 /* UserDto.m */; };
 		CA22DCC71D88588000D6F7C0 /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = CA22DCC61D88588000D6F7C0 /* API.m */; };
 		CAED0B421D8A45E500C553B6 /* RoomDto.m in Sources */ = {isa = PBXBuildFile; fileRef = CAED0B411D8A45E500C553B6 /* RoomDto.m */; };
+		CAEF5FCD1D8A9B5D001E51C0 /* RegisterFinishVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CAEF5FCC1D8A9B5D001E51C0 /* RegisterFinishVC.m */; };
 		CAF28AC11D8A7A5800B76E8A /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF28AC01D8A7A5800B76E8A /* LoginVC.m */; };
 		CAF28AC51D8A7A7F00B76E8A /* RegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF28AC41D8A7A7F00B76E8A /* RegisterVC.m */; };
 		CAF28ACA1D8A897000B76E8A /* activityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAF28AC71D8A897000B76E8A /* activityView.xib */; };
@@ -73,6 +74,8 @@
 		CA22DCC61D88588000D6F7C0 /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
 		CAED0B401D8A45E500C553B6 /* RoomDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomDto.h; sourceTree = "<group>"; };
 		CAED0B411D8A45E500C553B6 /* RoomDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomDto.m; sourceTree = "<group>"; };
+		CAEF5FCB1D8A9B5D001E51C0 /* RegisterFinishVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterFinishVC.h; sourceTree = "<group>"; };
+		CAEF5FCC1D8A9B5D001E51C0 /* RegisterFinishVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterFinishVC.m; sourceTree = "<group>"; };
 		CAF28ABF1D8A7A5800B76E8A /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
 		CAF28AC01D8A7A5800B76E8A /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 		CAF28AC31D8A7A7F00B76E8A /* RegisterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterVC.h; sourceTree = "<group>"; };
@@ -282,6 +285,8 @@
 			children = (
 				CAF28AC31D8A7A7F00B76E8A /* RegisterVC.h */,
 				CAF28AC41D8A7A7F00B76E8A /* RegisterVC.m */,
+				CAEF5FCB1D8A9B5D001E51C0 /* RegisterFinishVC.h */,
+				CAEF5FCC1D8A9B5D001E51C0 /* RegisterFinishVC.m */,
 			);
 			path = RegisterVC;
 			sourceTree = "<group>";
@@ -486,6 +491,7 @@
 				6852B0A31D87D5DE00B68763 /* AppDelegate.m in Sources */,
 				CA22DCC41D88587600D6F7C0 /* UserDto.m in Sources */,
 				CAF28AC51D8A7A7F00B76E8A /* RegisterVC.m in Sources */,
+				CAEF5FCD1D8A9B5D001E51C0 /* RegisterFinishVC.m in Sources */,
 				CAF28ACB1D8A897000B76E8A /* activityViewController.m in Sources */,
 				CA22DCC71D88588000D6F7C0 /* API.m in Sources */,
 				6852B0A01D87D5DE00B68763 /* main.m in Sources */,

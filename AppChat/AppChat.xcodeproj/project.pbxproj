@@ -23,6 +23,8 @@
 		CAED0B421D8A45E500C553B6 /* RoomDto.m in Sources */ = {isa = PBXBuildFile; fileRef = CAED0B411D8A45E500C553B6 /* RoomDto.m */; };
 		CAF28AC11D8A7A5800B76E8A /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF28AC01D8A7A5800B76E8A /* LoginVC.m */; };
 		CAF28AC51D8A7A7F00B76E8A /* RegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF28AC41D8A7A7F00B76E8A /* RegisterVC.m */; };
+		CAF28ACA1D8A897000B76E8A /* activityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAF28AC71D8A897000B76E8A /* activityView.xib */; };
+		CAF28ACB1D8A897000B76E8A /* activityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF28AC91D8A897000B76E8A /* activityViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,9 @@
 		CAF28AC01D8A7A5800B76E8A /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 		CAF28AC31D8A7A7F00B76E8A /* RegisterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterVC.h; sourceTree = "<group>"; };
 		CAF28AC41D8A7A7F00B76E8A /* RegisterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterVC.m; sourceTree = "<group>"; };
+		CAF28AC71D8A897000B76E8A /* activityView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = activityView.xib; sourceTree = "<group>"; };
+		CAF28AC81D8A897000B76E8A /* activityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = activityViewController.h; sourceTree = "<group>"; };
+		CAF28AC91D8A897000B76E8A /* activityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = activityViewController.m; sourceTree = "<group>"; };
 		ED3F2686AB55589CC98F8DDD /* Pods_AppChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -246,6 +251,7 @@
 		CA2F1F181D87E26F00090C9A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CAF28AC61D8A896500B76E8A /* ActitivityLoading */,
 				6852B0A71D87D5DE00B68763 /* Main.storyboard */,
 				6852B0AC1D87D5DE00B68763 /* LaunchScreen.storyboard */,
 			);
@@ -278,6 +284,16 @@
 				CAF28AC41D8A7A7F00B76E8A /* RegisterVC.m */,
 			);
 			path = RegisterVC;
+			sourceTree = "<group>";
+		};
+		CAF28AC61D8A896500B76E8A /* ActitivityLoading */ = {
+			isa = PBXGroup;
+			children = (
+				CAF28AC71D8A897000B76E8A /* activityView.xib */,
+				CAF28AC81D8A897000B76E8A /* activityViewController.h */,
+				CAF28AC91D8A897000B76E8A /* activityViewController.m */,
+			);
+			path = ActitivityLoading;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -387,6 +403,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6852B0AE1D87D5DE00B68763 /* LaunchScreen.storyboard in Resources */,
+				CAF28ACA1D8A897000B76E8A /* activityView.xib in Resources */,
 				6852B0AB1D87D5DE00B68763 /* Assets.xcassets in Resources */,
 				6852B0A91D87D5DE00B68763 /* Main.storyboard in Resources */,
 			);
@@ -469,6 +486,7 @@
 				6852B0A31D87D5DE00B68763 /* AppDelegate.m in Sources */,
 				CA22DCC41D88587600D6F7C0 /* UserDto.m in Sources */,
 				CAF28AC51D8A7A7F00B76E8A /* RegisterVC.m in Sources */,
+				CAF28ACB1D8A897000B76E8A /* activityViewController.m in Sources */,
 				CA22DCC71D88588000D6F7C0 /* API.m in Sources */,
 				6852B0A01D87D5DE00B68763 /* main.m in Sources */,
 			);

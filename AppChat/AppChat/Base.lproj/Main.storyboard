@@ -91,6 +91,9 @@
                                         <exclude reference="4Ql-cH-Afj"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="onClickedForgotPassword:" destination="9E9-15-h3w" eventType="touchUpInside" id="ycB-Ia-wv9"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7a-mf-UBB">
                                 <rect key="frame" x="40" y="395" width="520" height="45"/>
@@ -104,6 +107,9 @@
                                         <exclude reference="wy2-74-zA4"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="onClickedRegister:" destination="9E9-15-h3w" eventType="touchUpOutside" id="CwN-au-efC"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Prt-ay-UzT">
                                 <rect key="frame" x="40" y="335" width="520" height="45"/>
@@ -117,6 +123,9 @@
                                         <exclude reference="AJ1-XB-dvw"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="onClickedLogin:" destination="9E9-15-h3w" eventType="touchUpInside" id="L35-ak-v4j"/>
+                                </connections>
                             </button>
                             <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m1W-qd-ENC">
                                 <rect key="frame" x="40" y="265" width="520" height="40"/>
@@ -234,10 +243,14 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="tfPassword" destination="NZD-Wp-HeH" id="6LZ-V2-YUn"/>
+                        <outlet property="tfUserName" destination="fjb-gd-XRA" id="j0t-Mt-Ylf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oa4-AV-bPx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="501" y="412"/>
+            <point key="canvasLocation" x="554" y="408"/>
         </scene>
         <!--RegisterVC-->
         <scene sceneID="QNe-E4-beL">

@@ -23,7 +23,7 @@
     return self;
 }
 
-- (NSDictionary *)getJSONOject {
+- (NSDictionary *)getJSONObject {
     NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
     
     [dic setObject:_email forKey:@"email"];

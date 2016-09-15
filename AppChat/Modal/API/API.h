@@ -22,6 +22,10 @@ typedef void (^APICallback)(BOOL success, id data);
                              header:(NSDictionary*)headers
                                body:(LoginDto*)body callback:(APICallback)callback;
 
++ (void)getRegisterDtoprocessAPI:(NSString* )route
+                       method:(NSString* )method
+                       header:(NSDictionary*)headers
+                         body:(SignDto*)body callback:(APICallback)callback;
 
 
 @end

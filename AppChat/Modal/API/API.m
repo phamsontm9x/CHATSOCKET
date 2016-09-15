@@ -8,7 +8,7 @@
 
 #import "API.h"
 
-#define server @"http://52.221.225.151:3000/user/login"
+#define server @"http://52.221.225.151:3000"
 
 @implementation API
 
@@ -18,7 +18,7 @@
                        header:(NSDictionary*)headers
                          body:(LoginDto*)body callback:(APICallback)callback{
     // connect server
-    NSString * strUrl = [NSString stringWithFormat:@"%@",route];
+    NSString * strUrl = [NSString stringWithFormat:@"%@/%@",server,route];
     
     NSMutableURLRequest * request = [[NSMutableURLRequest alloc]init];
     
@@ -68,8 +68,48 @@
     }] resume];
 }
 
-//- (void)login:(LoginDto *)data callback:(APICallback)callback {
-//    [self getLoginDtoprocessAPI:server method:@"POST" header:nil body:data];
-//}
++ (void)getRegisterDtoprocessAPI:(NSString* )route
+                          method:(NSString* )method
+                          header:(NSDictionary*)headers
+                            body:(SignDto*)body callback:(APICallback)callback {
+    NSString * strUrl = [NSString stringWithFormat:@"%@/%@",server,route];
+    
+    NSMutableURLRequest * request = [[NSMutableURLRequest alloc]init];
+    
+    // route
+    request.URL = [NSURL URLWithString:strUrl];
+    // header
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPMethod:@"POST"];
+    //email=aabccdef3%40gmail.com&password=Aa12345&phone=0978506324&image=&birthday=1996-04-02&gender=false
+    NSMutableString *json = [NSMutableString stringWithFormat:@"email=%@&password=%@&phone=%@&image=%@&birthday=%@&gender=%@",
+                             body.email,
+                             body.password,
+                             body.phone,
+                             body.image,
+                             body.birthday,
+                             body.gender];
+    NSData *dataBody =  [json dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    request.HTTPBody = dataBody ;
+    
+    void (^successCallback)(id data) = ^(id data) {
+        NSMutableDictionary *respondData = [NSJSONSerialization JSONObjectWithData:data
+                                                                           options:NSJSONReadingMutableContainers
+                                                                             error:nil];
+        NSMutableDictionary *results = [respondData objectForKey:@"results"];
+        callback(YES,results);
+        
+    };
+    
+    [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        id dataResponse = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+
+        successCallback(data);
+        
+    }] resume];
+
+}
+
 
 @end

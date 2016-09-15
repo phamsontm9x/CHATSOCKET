@@ -14,7 +14,8 @@
 #import "LoginDto.h"
 #import "SignDto.h"
 
-#define server @"http://52.221.225.151:3000/user/login"
+#define serverLogin @"user/login"
+#define serverRegister @"user/register"
 
 
 @interface ViewController ()
@@ -56,14 +57,31 @@
 }
 - (IBAction)onClickedLogin:(UIButton *)btn {
     LoginDto * loginDto = [[LoginDto alloc]init];
-    loginDto.email = @"aabccdef4@gmail.com";
+    loginDto.email = @"admin@gmail.com";
     loginDto.password = @"Aa12345";
-    [API getLoginDtoprocessAPI:server method:@"POST" header:nil body:loginDto callback:^(BOOL success, id data) {
+    [API getLoginDtoprocessAPI:serverLogin method:@"POST" header:nil body:loginDto callback:^(BOOL success, id data) {
         if(success) {
             NSLog(@"");
         }
     }];
     NSLog(@"");
+}
+
+- (IBAction)onClickedRegister:(UIButton *)btn {
+    SignDto * signDto = [[SignDto alloc]init];
+    signDto.email = @"admin@gmail.com";
+    signDto.password = @"Aa12345";
+    signDto.phone = @"0978506324";
+    signDto.image = @"Sondeptrai";
+    signDto.birthday = @"1996-04-02";
+    signDto.gender = @"false";
+    
+    [API getRegisterDtoprocessAPI:serverRegister method:@"POST" header:nil body:signDto callback:^(BOOL success, id data) {
+        if(success) {
+            NSLog(@"");
+        }
+    }];
+    
 }
 
 @end

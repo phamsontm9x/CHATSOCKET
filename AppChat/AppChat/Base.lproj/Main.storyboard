@@ -18,22 +18,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0t0-fQ-dTi">
-                                <rect key="frame" x="277" y="285" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="281" y="285" width="38" height="30"/>
+                                <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="onClickedLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sKq-OR-Dmk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STJ-vr-TCf">
+                                <rect key="frame" x="270" y="332" width="60" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="A4J-N0-kEy"/>
+                                    <constraint firstAttribute="width" constant="60" id="BVQ-je-JWY"/>
+                                </constraints>
+                                <state key="normal" title="Register"/>
+                                <connections>
+                                    <action selector="onClickedRegister:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OST-sO-IrM"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="STJ-vr-TCf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Jfr-px-00M"/>
                             <constraint firstItem="0t0-fQ-dTi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UFv-bK-bPC"/>
+                            <constraint firstItem="STJ-vr-TCf" firstAttribute="top" secondItem="0t0-fQ-dTi" secondAttribute="bottom" constant="17" id="Y6L-TO-wCw"/>
                             <constraint firstItem="0t0-fQ-dTi" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="dXt-U7-bAG"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="513" y="441"/>
         </scene>
     </scenes>
 </document>

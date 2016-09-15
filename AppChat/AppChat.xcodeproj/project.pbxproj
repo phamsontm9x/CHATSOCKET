@@ -20,6 +20,7 @@
 		CA22DCC11D88586B00D6F7C0 /* SignDto.m in Sources */ = {isa = PBXBuildFile; fileRef = CA22DCC01D88586B00D6F7C0 /* SignDto.m */; };
 		CA22DCC41D88587600D6F7C0 /* UserDto.m in Sources */ = {isa = PBXBuildFile; fileRef = CA22DCC31D88587600D6F7C0 /* UserDto.m */; };
 		CA22DCC71D88588000D6F7C0 /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = CA22DCC61D88588000D6F7C0 /* API.m */; };
+		CAED0B421D8A45E500C553B6 /* RoomDto.m in Sources */ = {isa = PBXBuildFile; fileRef = CAED0B411D8A45E500C553B6 /* RoomDto.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,8 @@
 		CA22DCC31D88587600D6F7C0 /* UserDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDto.m; sourceTree = "<group>"; };
 		CA22DCC51D88588000D6F7C0 /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
 		CA22DCC61D88588000D6F7C0 /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
+		CAED0B401D8A45E500C553B6 /* RoomDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomDto.h; sourceTree = "<group>"; };
+		CAED0B411D8A45E500C553B6 /* RoomDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomDto.m; sourceTree = "<group>"; };
 		ED3F2686AB55589CC98F8DDD /* Pods_AppChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -234,6 +237,7 @@
 				CA22DCB91D88585100D6F7C0 /* LoginDto */,
 				CA22DCBA1D88585100D6F7C0 /* SignDto */,
 				CA22DCBB1D88585100D6F7C0 /* UserDto */,
+				CAED0B3F1D8A45CF00C553B6 /* RoomDto */,
 				CA22DCB61D88580700D6F7C0 /* API */,
 			);
 			path = Modal;
@@ -247,6 +251,16 @@
 			);
 			path = View;
 			sourceTree = SOURCE_ROOT;
+		};
+		CAED0B3F1D8A45CF00C553B6 /* RoomDto */ = {
+			isa = PBXGroup;
+			children = (
+				CAED0B401D8A45E500C553B6 /* RoomDto.h */,
+				CAED0B411D8A45E500C553B6 /* RoomDto.m */,
+			);
+			name = RoomDto;
+			path = API/RoomDto;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -429,6 +443,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAED0B421D8A45E500C553B6 /* RoomDto.m in Sources */,
 				6852B0A61D87D5DE00B68763 /* ViewController.m in Sources */,
 				CA22DCBE1D88586000D6F7C0 /* LoginDto.m in Sources */,
 				CA22DCC11D88586B00D6F7C0 /* SignDto.m in Sources */,

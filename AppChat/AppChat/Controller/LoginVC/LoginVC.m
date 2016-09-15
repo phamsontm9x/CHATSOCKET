@@ -18,7 +18,7 @@
 #import "RegisterVC.h"
 
 #define serverLogin @"user/login"
-#define serverRegister @"user/register"
+
 
 @implementation LoginVC {
     activityViewController *_activityView;
@@ -85,27 +85,12 @@
 }
 
 - (IBAction)onClickedRegister:(UIButton *)btn {
-//    SignDto * signDto = [[SignDto alloc]init];
-//    signDto.email = @"admin@gmail.com";
-//    signDto.password = @"Aa12345";
-//    signDto.phone = @"0978506324";
-//    signDto.image = @"Sondeptrai";
-//    signDto.birthday = @"1996-04-02";
-//    signDto.gender = @"false";
-//    
-//    [API getRegisterDtoprocessAPI:serverRegister method:@"POST" header:nil body:signDto callback:^(BOOL success, id data) {
-//        if(success) {
-//            NSLog(@"");
-//        }
-//    }];
-    
     RegisterVC *vRegister =[self.storyboard instantiateViewControllerWithIdentifier:@"RegisterVC"];
     [self presentViewController:vRegister animated:NO completion:nil];
 }
 
 - (IBAction)onClickedForgotPassword:(UIButton *)btn {
-    RegisterVC *vRegister =[self.storyboard instantiateViewControllerWithIdentifier:@"RegisterVC"];
-    [self presentViewController:vRegister animated:NO completion:nil];
+
 }
 
 

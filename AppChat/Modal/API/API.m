@@ -54,8 +54,10 @@
         NSMutableDictionary *respondData = [NSJSONSerialization JSONObjectWithData:data
                                                                            options:NSJSONReadingMutableContainers
                                                                              error:nil];
+        NSMutableDictionary *statuscode = [respondData objectForKey:@"statuscode"];
         NSMutableDictionary *results = [respondData objectForKey:@"results"];
-        if ([results isEqual:@"email is invalid"]|| [results isEqual:@"user was not found"] || [results isEqual:@"wrong password"]) {
+        NSString * stt = [NSString stringWithFormat:@"%@",statuscode];
+        if ([stt isEqual:@"404"]) {
             callback(NO,results);
         } else {
             callback(YES,results);
@@ -83,13 +85,14 @@
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [request setHTTPMethod:@"POST"];
     //email=aabccdef3%40gmail.com&password=Aa12345&phone=0978506324&image=&birthday=1996-04-02&gender=false
-    NSMutableString *json = [NSMutableString stringWithFormat:@"email=%@&password=%@&phone=%@&image=%@&birthday=%@&gender=%@",
+    NSMutableString *json = [NSMutableString stringWithFormat:@"email=%@&password=%@&phone=%@&image=%@&birthday=%@&gender=%@&name=%@",
                              body.email,
                              body.password,
                              body.phone,
                              body.image,
                              body.birthday,
-                             body.gender];
+                             body.gender,
+                             body.name];
     NSData *dataBody =  [json dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     request.HTTPBody = dataBody ;
     
@@ -97,14 +100,18 @@
         NSMutableDictionary *respondData = [NSJSONSerialization JSONObjectWithData:data
                                                                            options:NSJSONReadingMutableContainers
                                                                              error:nil];
+        NSMutableDictionary *statuscode = [respondData objectForKey:@"statuscode"];
         NSMutableDictionary *results = [respondData objectForKey:@"results"];
-        callback(YES,results);
+        NSString * stt = [NSString stringWithFormat:@"%@",statuscode];
+        if ([stt isEqual:@"404"]) {
+            callback(NO,results);
+        } else {
+            callback(YES,results);
+        }
         
     };
     
     [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        
-        id dataResponse = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
 
         successCallback(data);
         

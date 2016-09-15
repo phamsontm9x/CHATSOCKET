@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RegisterVC : UIViewController
+@interface RegisterVC : UIViewController<UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *tfUserName;
 @property (weak, nonatomic) IBOutlet UITextField *tfPassword;

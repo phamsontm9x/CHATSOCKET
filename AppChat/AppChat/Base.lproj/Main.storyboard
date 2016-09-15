@@ -146,7 +146,7 @@
                                         <rect key="frame" x="42" y="1" width="477" height="38"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
@@ -183,7 +183,7 @@
                                         <rect key="frame" x="42" y="1" width="477" height="38"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
@@ -280,8 +280,8 @@
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="ksf-C3-Ecd"/>
                                                 <exclude reference="d1M-4T-NiP"/>
+                                                <exclude reference="ksf-C3-Ecd"/>
                                             </mask>
                                         </variation>
                                     </imageView>
@@ -289,8 +289,8 @@
                                         <rect key="frame" x="42" y="1" width="477" height="38"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.31993749999999999" green="0.1760870511" blue="0.026286706230000002" alpha="0.48989182689999999" colorSpace="calibratedRGB"/>
@@ -330,7 +330,7 @@
                                         <rect key="frame" x="42" y="1" width="477" height="38"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
@@ -367,8 +367,8 @@
                                         <rect key="frame" x="42" y="1" width="477" height="36"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.31993749999999999" green="0.1760870511" blue="0.026286706230000002" alpha="0.48989182689999999" colorSpace="calibratedRGB"/>
@@ -425,7 +425,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="onClickedRegister:" destination="c1C-4t-QS1" eventType="touchUpInside" id="EQR-Li-7Oq"/>
+                                    <action selector="onClickedNext:" destination="c1C-4t-QS1" eventType="touchUpInside" id="Siz-Ph-O5T"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="registerSelect1" translatesAutoresizingMaskIntoConstraints="NO" id="sgc-xc-PFG">
@@ -478,6 +478,11 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="tfPassword" destination="smi-z5-LyY" id="pVL-V2-iYr"/>
+                        <outlet property="tfReTypePassword" destination="hBz-4T-Jbx" id="Nk6-lC-sJa"/>
+                        <outlet property="tfUserName" destination="Y2s-Bk-GN2" id="dAg-u4-0xQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l2L-sg-rnL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -518,7 +523,7 @@
                                 <rect key="frame" x="0.0" y="-2" width="600" height="602"/>
                             </imageView>
                             <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mgb-m7-Zhd">
-                                <rect key="frame" x="40" y="242" width="520" height="40"/>
+                                <rect key="frame" x="40" y="232" width="520" height="40"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="sp9-uy-Jmv">
                                         <rect key="frame" x="1" y="1" width="38" height="38"/>
@@ -534,12 +539,12 @@
                                             </mask>
                                         </variation>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cYI-5c-yqX">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cYI-5c-yqX">
                                         <rect key="frame" x="42" y="1" width="477" height="38"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.31993749999999999" green="0.1760870511" blue="0.026286706230000002" alpha="0.48989182689999999" colorSpace="calibratedRGB"/>
@@ -561,7 +566,7 @@
                                 </variation>
                             </view>
                             <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dnm-sE-03x">
-                                <rect key="frame" x="40" y="297" width="520" height="40"/>
+                                <rect key="frame" x="40" y="287" width="520" height="40"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password" translatesAutoresizingMaskIntoConstraints="NO" id="gAB-8y-hMl">
                                         <rect key="frame" x="1" y="1" width="38" height="38"/>
@@ -575,12 +580,12 @@
                                             </mask>
                                         </variation>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FPv-Dh-ge1">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Gender" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FPv-Dh-ge1">
                                         <rect key="frame" x="42" y="1" width="477" height="38"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.31993749999999999" green="0.1760870511" blue="0.026286706230000002" alpha="0.48989182689999999" colorSpace="calibratedRGB"/>
@@ -596,7 +601,7 @@
                                 </constraints>
                             </view>
                             <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2E7-kO-omp">
-                                <rect key="frame" x="40" y="352" width="520" height="38"/>
+                                <rect key="frame" x="40" y="342" width="520" height="38"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password" translatesAutoresizingMaskIntoConstraints="NO" id="Gbh-ud-5GF">
                                         <rect key="frame" x="1" y="1" width="38" height="36"/>
@@ -607,17 +612,17 @@
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="qBZ-rF-wSX"/>
                                                 <exclude reference="9yz-wg-ppq"/>
+                                                <exclude reference="qBZ-rF-wSX"/>
                                             </mask>
                                         </variation>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Re-Type-Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eIa-Vy-6wg">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Birdthday" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eIa-Vy-6wg">
                                         <rect key="frame" x="42" y="1" width="477" height="36"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.31993749999999999" green="0.1760870511" blue="0.026286706230000002" alpha="0.48989182689999999" colorSpace="calibratedRGB"/>
@@ -646,20 +651,23 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sFt-XA-dgh">
-                                <rect key="frame" x="100" y="465" width="400" height="25"/>
+                                <rect key="frame" x="40" y="455" width="520" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="aBC-As-309"/>
-                                    <constraint firstAttribute="height" constant="25" id="exZ-Ft-X54"/>
+                                    <constraint firstAttribute="height" constant="45" id="exZ-Ft-X54"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="haveacount"/>
+                                <state key="normal" backgroundImage="register"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="aBC-As-309"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="onClickedRegister:" destination="cil-Hy-4CI" eventType="touchUpInside" id="sq8-dn-7nB"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JRh-sR-FTO">
-                                <rect key="frame" x="40" y="405" width="520" height="45"/>
+                                <rect key="frame" x="40" y="395" width="520" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Dg2-Z2-f7j"/>
                                     <constraint firstAttribute="width" constant="250" id="VWx-kg-SnR"/>
@@ -670,9 +678,12 @@
                                         <exclude reference="VWx-kg-SnR"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="onClickedPrevious:" destination="cil-Hy-4CI" eventType="touchUpInside" id="ard-rs-bBX"/>
+                                </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="registerSelect1" translatesAutoresizingMaskIntoConstraints="NO" id="r9p-Fx-yl1">
-                                <rect key="frame" x="263" y="211" width="74" height="23"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="registerSelect2" translatesAutoresizingMaskIntoConstraints="NO" id="r9p-Fx-yl1">
+                                <rect key="frame" x="263" y="201" width="74" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="23" id="ECj-W5-g1a"/>
                                     <constraint firstAttribute="width" constant="74" id="ksp-Cv-kiC"/>
@@ -683,13 +694,13 @@
                         <constraints>
                             <constraint firstItem="WaQ-p5-Lor" firstAttribute="centerX" secondItem="W8Q-Fs-wtb" secondAttribute="centerX" id="1TZ-jN-g4h"/>
                             <constraint firstItem="2E7-kO-omp" firstAttribute="top" secondItem="dnm-sE-03x" secondAttribute="bottom" constant="15" id="5Sn-bO-c2n"/>
-                            <constraint firstItem="xL5-f6-COV" firstAttribute="top" secondItem="sFt-XA-dgh" secondAttribute="bottom" constant="110" id="9uK-q1-7fh"/>
+                            <constraint firstItem="xL5-f6-COV" firstAttribute="top" secondItem="sFt-XA-dgh" secondAttribute="bottom" constant="100" id="9uK-q1-7fh"/>
                             <constraint firstItem="dnm-sE-03x" firstAttribute="top" secondItem="Mgb-m7-Zhd" secondAttribute="bottom" constant="15" id="Eax-mK-sTX"/>
                             <constraint firstItem="sFt-XA-dgh" firstAttribute="top" secondItem="W8Q-Fs-wtb" secondAttribute="bottom" constant="-78" id="FlF-xE-gyI"/>
                             <constraint firstItem="r9p-Fx-yl1" firstAttribute="centerX" secondItem="C4e-Xz-20s" secondAttribute="centerX" id="Gg6-2W-70R"/>
                             <constraint firstItem="JRh-sR-FTO" firstAttribute="centerX" secondItem="C4e-Xz-20s" secondAttribute="centerX" id="Gp3-PJ-WxB"/>
                             <constraint firstItem="2E7-kO-omp" firstAttribute="centerX" secondItem="C4e-Xz-20s" secondAttribute="centerX" id="HNg-0W-6as"/>
-                            <constraint firstItem="sFt-XA-dgh" firstAttribute="leading" secondItem="C4e-Xz-20s" secondAttribute="leading" constant="100" id="HeH-Zp-iVr"/>
+                            <constraint firstItem="sFt-XA-dgh" firstAttribute="leading" secondItem="C4e-Xz-20s" secondAttribute="leading" constant="40" id="HeH-Zp-iVr"/>
                             <constraint firstItem="dnm-sE-03x" firstAttribute="centerX" secondItem="C4e-Xz-20s" secondAttribute="centerX" id="J3R-BB-FJO"/>
                             <constraint firstItem="Mgb-m7-Zhd" firstAttribute="leading" secondItem="C4e-Xz-20s" secondAttribute="leadingMargin" constant="20" id="JbL-4c-Xf3"/>
                             <constraint firstItem="sFt-XA-dgh" firstAttribute="top" secondItem="JRh-sR-FTO" secondAttribute="bottom" constant="15" id="LTJ-Xh-bdO"/>
@@ -721,10 +732,65 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="tfBrithday" destination="eIa-Vy-6wg" id="NPA-fh-SFm"/>
+                        <outlet property="tfFullName" destination="cYI-5c-yqX" id="YiS-e0-9TI"/>
+                        <outlet property="tfGender" destination="FPv-Dh-ge1" id="Lca-zH-577"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GPk-X3-Xh6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2690" y="386"/>
+            <point key="canvasLocation" x="2630" y="386"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="TZH-uw-YsN">
+            <objects>
+                <viewController id="od6-Lg-otI" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sg3-gF-1Vh"/>
+                        <viewControllerLayoutGuide type="bottom" id="iUj-Ge-CSy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ePD-Qo-ABe">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BwU-VW-092">
+                                <rect key="frame" x="130" y="106" width="351" height="246"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="p9H-Jx-PmE">
+                                        <rect key="frame" x="0.0" y="28" width="351" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p9H-Jx-PmE" id="PSN-ll-Dol">
+                                            <rect key="frame" x="0.0" y="0.0" width="351" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="fCg-wG-QcT">
+                                        <rect key="frame" x="0.0" y="72" width="351" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fCg-wG-QcT" id="5tT-Ji-kiF">
+                                            <rect key="frame" x="0.0" y="0.0" width="351" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ksv-Wh-XR6">
+                                        <rect key="frame" x="0.0" y="116" width="351" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ksv-Wh-XR6" id="AIK-Fj-Gq4">
+                                            <rect key="frame" x="0.0" y="0.0" width="351" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="94J-Oa-WmF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1357" y="1153"/>
         </scene>
     </scenes>
     <resources>
@@ -737,6 +803,7 @@
         <image name="password" width="32" height="32"/>
         <image name="register" width="269" height="40"/>
         <image name="registerSelect1" width="28" height="9"/>
+        <image name="registerSelect2" width="28" height="9"/>
         <image name="titleLogin" width="60" height="24"/>
         <image name="titleRegiter" width="92" height="24"/>
         <image name="user" width="24" height="24"/>

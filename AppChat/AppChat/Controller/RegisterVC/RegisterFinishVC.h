@@ -10,4 +10,8 @@
 
 @interface RegisterFinishVC : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *tfFullName;
+@property (weak, nonatomic) IBOutlet UITextField *tfGender;
+@property (weak, nonatomic) IBOutlet UITextField *tfBrithday;
+
 @end

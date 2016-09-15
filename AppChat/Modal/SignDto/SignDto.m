@@ -19,6 +19,7 @@
     _image = [dic objectForKey:@"image"];
     _birthday = [dic objectForKey:@"birthday"];
     _gender = [dic objectForKey:@"gender"];
+    _name = [dic objectForKey:@"name"];
     
     return self;
 }
@@ -32,6 +33,7 @@
     [dic setObject:_image forKey:@"image"];
     [dic setObject:_birthday forKey:@"birtday"];
     [dic setObject:_gender forKey:@"gender"];
+    [dic setObject:_name forKey:@"name"];
     
     return dic;
 }

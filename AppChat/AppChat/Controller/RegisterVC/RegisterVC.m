@@ -7,13 +7,15 @@
 //
 
 #import "RegisterVC.h"
+#import "RegisterFinishVC.h"
 
-@implementation RegisterVC
+@implementation RegisterVC {
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-//    [self createActivity];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -21,29 +23,13 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma CreateLoading
-
-//-(void)createActivity{
-//    _activityView = [[[NSBundle mainBundle] loadNibNamed:@"activityView" owner:self options:nil] lastObject];
-//    [_activityView setFrame:CGRectMake(0, 0, 375, 677)];
-//    [self.view addSubview:_activityView];
-//    _activityView.hidden = YES;
-//    
-//}
-//
-//- (void)controlActivity: (BOOL)control{
-//    if (control == YES) {
-//        _activityView.hidden = NO;
-//    } else {
-//        _activityView.hidden = YES;
-//    }
-//}
+#pragma init
 
 
 #pragma Action Button
 
 
-- (IBAction)onClickedRegister:(UIButton *)btn {
+- (IBAction)onClickedNext:(UIButton *)btn {
     //    SignDto * signDto = [[SignDto alloc]init];
     //    signDto.email = @"admin@gmail.com";
     //    signDto.password = @"Aa12345";
@@ -58,13 +44,12 @@
     //        }
     //    }];
     
-    RegisterVC *vRegister =[self.storyboard instantiateViewControllerWithIdentifier:@"RegisterVC"];
-    [self presentViewController:vRegister animated:NO completion:nil];
+    RegisterFinishVC *vRegisterFinish =[self.storyboard instantiateViewControllerWithIdentifier:@"RegisterFinishVC"];
+    [self presentViewController:vRegisterFinish animated:NO completion:nil];
 }
 
 - (IBAction)onClickedHaveAcount:(UIButton *)btn {
-    RegisterVC *vRegister =[self.storyboard instantiateViewControllerWithIdentifier:@"RegisterVC"];
-    [self presentViewController:vRegister animated:NO completion:nil];
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 @end

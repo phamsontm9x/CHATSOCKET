@@ -16,6 +16,7 @@
 @property (nonatomic ,strong) NSString * image;
 @property (nonatomic ,strong) NSString * birthday;
 @property (nonatomic ,strong) NSString * gender;
+@property (nonatomic ,strong) NSString * name;
 
 - (NSDictionary*) getJSONObject;
 

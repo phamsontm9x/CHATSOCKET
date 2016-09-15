@@ -30,21 +30,6 @@
 //    [allHeader setObject:@"application/json" forKey:@"Content-Type"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [request setHTTPMethod:@"POST"];
-//    [allHeader addEntriesFromDictionary:headers];
-//    request.allHTTPHeaderFields = headers;
-    
-    //method
-//    request.HTTPMethod = method;
-    
-    //body
-//    NSDictionary *dicBody = [body getJSONObject];
-//    NSString *strEmail = [NSString stringWithFormat:@"aabccdef4@gmail.com"];
-//    [dic setObject:strEmail forKey:@"email"];
-//    [dic setObject:@"Aa12345" forKey:@"password"];
-//    NSMutableString *json = [NSMutableString stringWithString:@"{"];
-//    [json appendFormat:@"email: %@,",email];
-//    [json appendFormat:@"password: %@",password];
-//    [json appendFormat:@"}"];
     
     NSMutableString *json = [NSMutableString stringWithFormat:@"email=%@&password=%@",body.email,body.password];
     NSData *dataBody =  [json dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];

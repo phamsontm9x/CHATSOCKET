@@ -27,6 +27,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     [self createActivity];
+    [self createTapdismissKeyboard];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -91,6 +92,19 @@
 
 - (IBAction)onClickedForgotPassword:(UIButton *)btn {
 
+}
+
+#pragma mark -Delegate UITextField
+
+- (void)createTapdismissKeyboard {
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+}
+
+- (void)dismissKeyboard {
+    [self.view endEditing:YES];
 }
 
 

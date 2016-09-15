@@ -8,13 +8,6 @@
 
 #import "RegisterFinishVC.h"
 
-#import "SignDto.h"
-
-#import "API.h"
-
-#import "activityViewController.h"
-
-#define serverRegister @"user/register"
 
 @implementation RegisterFinishVC {
     activityViewController *_activityView;
@@ -26,6 +19,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     [self createActivity];
+    [self createTapdismissKeyboard];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,17 +50,18 @@
 
 
 - (IBAction)onClickedRegister:(UIButton *)btn {
-    
-    SignDto * signDto = [[SignDto alloc]init];
-    signDto.email = @"admin1111@gmail.com";
-    signDto.password = @"Aa12345";
-    signDto.phone = @"0978506324";
-    signDto.image = @"Sondeptrai";
-    signDto.birthday = @"1996-04-02";
-    signDto.gender = @"false";
-    signDto.name = @"Son";
-    
-    [API getRegisterDtoprocessAPI:serverRegister method:@"POST" header:nil body:signDto callback:^(BOOL success, id data){         dispatch_async(dispatch_get_main_queue(), ^(){
+    [self controlActivity:YES];
+    _userRegister = [[SignDto alloc]init];
+    _userRegister.email = _email;
+    _userRegister.password = _password;
+    _userRegister.phone = @"0978506324";
+    _userRegister.image = @"Sondeptrai";
+    _userRegister.birthday = _tfBrithday.text;
+    _userRegister.gender = @"false";
+    _userRegister.name = _tfFullName.text;
+    [API getRegisterDtoprocessAPI:serverRegister method:@"POST" header:nil body:_userRegister callback:^(BOOL success, id data){
+        
+        dispatch_async(dispatch_get_main_queue(), ^(){
         [self controlActivity:NO];
         NSString *mess ;
         if (success) {
@@ -92,5 +87,17 @@
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 
+#pragma mark -Delegate UITextField
+
+- (void)createTapdismissKeyboard {
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+}
+
+- (void)dismissKeyboard {
+    [self.view endEditing:YES];
+}
 
 @end

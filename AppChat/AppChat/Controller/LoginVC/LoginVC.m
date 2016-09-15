@@ -57,14 +57,27 @@
 - (IBAction)onClickedLogin:(UIButton *)btn {
     [self controlActivity:YES];
     LoginDto * loginDto = [[LoginDto alloc]init];
-    loginDto.email = @"admin@gmail.com";
-    loginDto.password = @"Aa12345";
+    loginDto.email = _tfUserName.text;
+    loginDto.password = _tfPassword.text;
+//    loginDto.email = @"aabccdef3@gmail.com";
+//    loginDto.password = @"Aa12345";
     [API getLoginDtoprocessAPI:serverLogin method:@"POST" header:nil body:loginDto callback:^(BOOL success, id data) {
-        if(success) {
+        dispatch_async(dispatch_get_main_queue(), ^(){
             [self controlActivity:NO];
-        }
+            if (success) {
+                
+            } else {
+                UIAlertController * alert =[UIAlertController alertControllerWithTitle:@"Warring"
+                                                                               message:@"Username or password not correct"
+                                                                        preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *OK =[UIAlertAction actionWithTitle:@"OK"
+                                                            style:UIAlertActionStyleDefault
+                                                          handler:nil];
+                [alert addAction:OK];
+                [self presentViewController:alert animated:YES completion:nil];
+            }
+        });
     }];
-    NSLog(@"");
 }
 
 - (IBAction)onClickedRegister:(UIButton *)btn {

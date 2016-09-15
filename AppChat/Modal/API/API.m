@@ -55,13 +55,14 @@
                                                                            options:NSJSONReadingMutableContainers
                                                                              error:nil];
         NSMutableDictionary *results = [respondData objectForKey:@"results"];
-        callback(YES,results);
-        
+        if ([results isEqual:@"email is invalid"]|| [results isEqual:@"user was not found"] || [results isEqual:@"wrong password"]) {
+            callback(NO,results);
+        } else {
+            callback(YES,results);
+        }
     };
     
     [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        
-        id dataResponse = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         
         successCallback(data);
         

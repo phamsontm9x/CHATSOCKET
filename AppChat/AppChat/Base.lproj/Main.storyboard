@@ -838,11 +838,24 @@
                                             <action selector="onClickedCreateRoom:" destination="od6-Lg-otI" eventType="touchUpInside" id="6lc-yM-4mx"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ow4-DS-jqn">
+                                        <rect key="frame" x="10" y="25" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="KbG-1H-UFV"/>
+                                            <constraint firstAttribute="height" constant="40" id="eC8-JR-CyN"/>
+                                        </constraints>
+                                        <state key="normal" title="Fuck"/>
+                                        <connections>
+                                            <action selector="onClickedProfile:" destination="od6-Lg-otI" eventType="touchUpInside" id="c2F-Pu-dPH"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.34906575444053584" green="0.81602282863879716" blue="0.89628125000000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="31g-N7-qgy"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ow4-DS-jqn" secondAttribute="bottom" constant="10" id="FHd-Yc-lWc"/>
                                     <constraint firstAttribute="bottom" secondItem="nFl-cz-Gjz" secondAttribute="bottom" constant="10" id="V5A-uC-PuU"/>
+                                    <constraint firstItem="Ow4-DS-jqn" firstAttribute="leading" secondItem="UxK-0o-5ZO" secondAttribute="leading" constant="10" id="Yfb-uL-oXX"/>
                                     <constraint firstItem="OJG-p7-Iur" firstAttribute="centerX" secondItem="UxK-0o-5ZO" secondAttribute="centerX" id="aPK-Sp-ATF"/>
                                     <constraint firstItem="PCu-MR-3DR" firstAttribute="top" secondItem="UxK-0o-5ZO" secondAttribute="top" constant="15" id="dOY-va-AzR"/>
                                     <constraint firstAttribute="bottom" secondItem="OJG-p7-Iur" secondAttribute="bottom" constant="10" id="htK-Jx-vh9"/>
@@ -981,6 +994,7 @@
         <!--Room ChatVC-->
         <scene sceneID="xXh-Fx-3Gr">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BeJ-BO-JZe" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="RoomChatVC" id="5uO-EJ-W1C" customClass="RoomChatVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E6E-NA-Vib"/>
@@ -1006,7 +1020,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 rooms active" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6b-ma-it7">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="2 user active" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6b-ma-it7">
                                         <rect key="frame" x="251" y="44" width="98" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="JCL-DH-KWE"/>
@@ -1191,9 +1205,87 @@
                         <outlet property="tbvChatRoom" destination="GaO-MY-VaN" id="J00-wN-gT7"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BeJ-BO-JZe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2021" y="1153"/>
+        </scene>
+        <!--ProfileVC-->
+        <scene sceneID="u5y-MO-4Oo">
+            <objects>
+                <viewController storyboardIdentifier="ProfileVC" id="hmx-WQ-uAr" customClass="ProfileVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sHo-zd-C6b"/>
+                        <viewControllerLayoutGuide type="bottom" id="FxL-5T-2zX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sAI-LU-SnU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundProfile" translatesAutoresizingMaskIntoConstraints="NO" id="FXU-DL-w0e">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E93-sQ-nkR">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="75"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1zk-1G-ugf">
+                                        <rect key="frame" x="231" y="20" width="138" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="ADz-vC-aaj"/>
+                                            <constraint firstAttribute="width" constant="138" id="AaG-zv-Prd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="19"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tsd-LA-WSP">
+                                        <rect key="frame" x="550" y="25" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="Cwx-mL-VSh"/>
+                                            <constraint firstAttribute="height" constant="40" id="wO4-nG-6hT"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="createRoom"/>
+                                        <connections>
+                                            <action selector="onClickedLogout:" destination="hmx-WQ-uAr" eventType="touchUpInside" id="UrH-zu-g8x"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zxf-IK-sit">
+                                        <rect key="frame" x="8" y="25" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="TU0-ry-q6O"/>
+                                            <constraint firstAttribute="width" constant="40" id="peB-ea-gqY"/>
+                                        </constraints>
+                                        <state key="normal" title="Fuck"/>
+                                        <connections>
+                                            <action selector="onClickedBack:" destination="hmx-WQ-uAr" eventType="touchUpInside" id="9yd-bU-P3X"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="0.70400240384615387" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="tsd-LA-WSP" secondAttribute="trailing" constant="10" id="1fN-G2-17Z"/>
+                                    <constraint firstAttribute="bottom" secondItem="zxf-IK-sit" secondAttribute="bottom" constant="10" id="84O-9a-mMR"/>
+                                    <constraint firstAttribute="bottom" secondItem="tsd-LA-WSP" secondAttribute="bottom" constant="10" id="bJc-qf-eOI"/>
+                                    <constraint firstItem="1zk-1G-ugf" firstAttribute="centerX" secondItem="E93-sQ-nkR" secondAttribute="centerX" id="cBV-wf-gz9"/>
+                                    <constraint firstItem="1zk-1G-ugf" firstAttribute="top" secondItem="E93-sQ-nkR" secondAttribute="top" constant="20" id="jER-Us-fkB"/>
+                                    <constraint firstAttribute="height" constant="75" id="jy2-Lv-B7G"/>
+                                    <constraint firstItem="zxf-IK-sit" firstAttribute="leading" secondItem="E93-sQ-nkR" secondAttribute="leading" constant="8" id="xbL-L1-JWl"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="FXU-DL-w0e" secondAttribute="trailing" id="NCa-GJ-9Gr"/>
+                            <constraint firstItem="E93-sQ-nkR" firstAttribute="leading" secondItem="sAI-LU-SnU" secondAttribute="leading" id="VNi-oz-HjE"/>
+                            <constraint firstItem="FXU-DL-w0e" firstAttribute="leading" secondItem="sAI-LU-SnU" secondAttribute="leading" id="W48-K1-uQI"/>
+                            <constraint firstItem="FxL-5T-2zX" firstAttribute="top" secondItem="FXU-DL-w0e" secondAttribute="bottom" id="XqT-ju-G5b"/>
+                            <constraint firstItem="FXU-DL-w0e" firstAttribute="top" secondItem="sAI-LU-SnU" secondAttribute="top" id="gsL-h5-Zha"/>
+                            <constraint firstAttribute="trailing" secondItem="E93-sQ-nkR" secondAttribute="trailing" id="qTt-1D-OOt"/>
+                            <constraint firstItem="E93-sQ-nkR" firstAttribute="top" secondItem="sAI-LU-SnU" secondAttribute="top" id="s19-7n-ZHd"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bZw-xp-9O6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="656" y="1153"/>
         </scene>
     </scenes>
     <resources>
@@ -1201,6 +1293,7 @@
         <image name="arrow" width="32" height="32"/>
         <image name="background" width="160" height="284"/>
         <image name="backgroundListRoom" width="320" height="568"/>
+        <image name="backgroundProfile" width="320" height="568"/>
         <image name="btnPrevious" width="269" height="40"/>
         <image name="cellListRoomLeft" width="263" height="57"/>
         <image name="cellListRoomRight" width="263" height="57"/>

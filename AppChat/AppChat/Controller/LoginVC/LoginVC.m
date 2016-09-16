@@ -8,16 +8,6 @@
 
 #import "LoginVC.h"
 
-#import "API.h"
-
-#import "UserDto.h"
-#import "LoginDto.h"
-#import "SignDto.h"
-
-#import "activityViewController.h"
-#import "RegisterVC.h"
-#import "RoomListVC.h"
-
 #define serverLogin @"user/login"
 
 
@@ -68,6 +58,7 @@
             NSString *mess ;
             if (success) {
                 mess = @"Login success";
+                 ((AppDelegate*)[UIApplication sharedApplication].delegate).strUserID = [data objectForKey:@"_id"];
             } else {
                 mess =@"Username or password not correct";
             }
@@ -77,8 +68,10 @@
             UIAlertAction *OK =[UIAlertAction actionWithTitle:@"OK"
                                                         style:UIAlertActionStyleDefault
                                                       handler:^(UIAlertAction * _Nonnull action) {
-                                                          RoomListVC *vRoomList =[self.storyboard instantiateViewControllerWithIdentifier:@"RoomListVC"];
-                                                          [self.navigationController pushViewController:vRoomList animated:YES];
+                                                          if (success){
+                                                              RoomListVC *vRoomList =[self.storyboard instantiateViewControllerWithIdentifier:@"RoomListVC"];
+                                                              [self.navigationController pushViewController:vRoomList animated:YES];
+                                                          }
                                                       }];
             [alert addAction:OK];
             [self presentViewController:alert animated:YES completion:nil];

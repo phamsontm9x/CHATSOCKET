@@ -11,6 +11,7 @@
 #import "LoginDto.h"
 #import "UserDto.h"
 #import "SignDto.h"
+#import "RoomDto.h"
 
 typedef void (^APICallback)(BOOL success, id data);
 
@@ -26,6 +27,16 @@ typedef void (^APICallback)(BOOL success, id data);
                        method:(NSString* )method
                        header:(NSDictionary*)headers
                          body:(SignDto*)body callback:(APICallback)callback;
+
++ (void)getListRoomDtoprocessAPI:(NSString* )route
+                          method:(NSString* )method
+                          header:(NSDictionary*)headers
+                        callback:(APICallback)callback;
+
++ (void)getCreateRoomDtoprocessAPI:(NSString* )route
+                           method:(NSString* )method
+                           header:(NSDictionary*)headers
+                             body:(RoomDto*)body callback:(APICallback)callback;
 
 
 @end

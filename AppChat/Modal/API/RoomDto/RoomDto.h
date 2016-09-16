@@ -10,7 +10,10 @@
 
 @interface RoomDto : NSObject
 
+@property (nonatomic ,strong) NSString *idRoom;
 @property (nonatomic ,strong) NSString *name;
 @property (nonatomic ,strong) NSString *menber;
+@property (nonatomic ,strong) NSString *slogan;
+@property (nonatomic ,strong) NSString *idOwner;
 
 @end

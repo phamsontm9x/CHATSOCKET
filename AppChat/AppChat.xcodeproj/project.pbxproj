@@ -26,6 +26,8 @@
 		CA22DCC11D88586B00D6F7C0 /* SignDto.m in Sources */ = {isa = PBXBuildFile; fileRef = CA22DCC01D88586B00D6F7C0 /* SignDto.m */; };
 		CA22DCC41D88587600D6F7C0 /* UserDto.m in Sources */ = {isa = PBXBuildFile; fileRef = CA22DCC31D88587600D6F7C0 /* UserDto.m */; };
 		CA22DCC71D88588000D6F7C0 /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = CA22DCC61D88588000D6F7C0 /* API.m */; };
+		CA7C55BF1D8C325C0042B347 /* ProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7C55BE1D8C325C0042B347 /* ProfileVC.m */; };
+		CA7C55C31D8C37460042B347 /* UserOnlineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7C55C21D8C37460042B347 /* UserOnlineVC.m */; };
 		CAED0B421D8A45E500C553B6 /* RoomDto.m in Sources */ = {isa = PBXBuildFile; fileRef = CAED0B411D8A45E500C553B6 /* RoomDto.m */; };
 		CAEF5FCD1D8A9B5D001E51C0 /* RegisterFinishVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CAEF5FCC1D8A9B5D001E51C0 /* RegisterFinishVC.m */; };
 		CAF28AC11D8A7A5800B76E8A /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF28AC01D8A7A5800B76E8A /* LoginVC.m */; };
@@ -90,6 +92,10 @@
 		CA22DCC31D88587600D6F7C0 /* UserDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDto.m; sourceTree = "<group>"; };
 		CA22DCC51D88588000D6F7C0 /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
 		CA22DCC61D88588000D6F7C0 /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
+		CA7C55BD1D8C325C0042B347 /* ProfileVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileVC.h; sourceTree = "<group>"; };
+		CA7C55BE1D8C325C0042B347 /* ProfileVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileVC.m; sourceTree = "<group>"; };
+		CA7C55C11D8C37460042B347 /* UserOnlineVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserOnlineVC.h; sourceTree = "<group>"; };
+		CA7C55C21D8C37460042B347 /* UserOnlineVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserOnlineVC.m; sourceTree = "<group>"; };
 		CAED0B401D8A45E500C553B6 /* RoomDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomDto.h; sourceTree = "<group>"; };
 		CAED0B411D8A45E500C553B6 /* RoomDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomDto.m; sourceTree = "<group>"; };
 		CAEF5FCB1D8A9B5D001E51C0 /* RegisterFinishVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterFinishVC.h; sourceTree = "<group>"; };
@@ -287,6 +293,8 @@
 		CA2F1F161D87E25400090C9A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CA7C55C01D8C37360042B347 /* UserOnlineVC */,
+				CA7C55BC1D8C324D0042B347 /* ProfileVC */,
 				CA1F7FA01D8BE7C100E95EE6 /* RoomChatVC */,
 				CA1F7F951D8BC5E300E95EE6 /* RoomListVC */,
 				CAF28AC21D8A7A7200B76E8A /* RegisterVC */,
@@ -322,6 +330,24 @@
 			);
 			path = View;
 			sourceTree = SOURCE_ROOT;
+		};
+		CA7C55BC1D8C324D0042B347 /* ProfileVC */ = {
+			isa = PBXGroup;
+			children = (
+				CA7C55BD1D8C325C0042B347 /* ProfileVC.h */,
+				CA7C55BE1D8C325C0042B347 /* ProfileVC.m */,
+			);
+			path = ProfileVC;
+			sourceTree = "<group>";
+		};
+		CA7C55C01D8C37360042B347 /* UserOnlineVC */ = {
+			isa = PBXGroup;
+			children = (
+				CA7C55C11D8C37460042B347 /* UserOnlineVC.h */,
+				CA7C55C21D8C37460042B347 /* UserOnlineVC.m */,
+			);
+			path = UserOnlineVC;
+			sourceTree = "<group>";
 		};
 		CAED0B3F1D8A45CF00C553B6 /* RoomDto */ = {
 			isa = PBXGroup;
@@ -551,12 +577,14 @@
 				CA1F7F981D8BC5F200E95EE6 /* RoomListVC.m in Sources */,
 				CA1F7F9C1D8BCC2800E95EE6 /* RoomLeftCell.m in Sources */,
 				CAF28AC11D8A7A5800B76E8A /* LoginVC.m in Sources */,
+				CA7C55C31D8C37460042B347 /* UserOnlineVC.m in Sources */,
 				CA22DCBE1D88586000D6F7C0 /* LoginDto.m in Sources */,
 				CA1F7FA71D8BF43000E95EE6 /* ChatLeftCell.m in Sources */,
 				CA22DCC11D88586B00D6F7C0 /* SignDto.m in Sources */,
 				6852B0A31D87D5DE00B68763 /* AppDelegate.m in Sources */,
 				CA22DCC41D88587600D6F7C0 /* UserDto.m in Sources */,
 				CAF28AC51D8A7A7F00B76E8A /* RegisterVC.m in Sources */,
+				CA7C55BF1D8C325C0042B347 /* ProfileVC.m in Sources */,
 				CAEF5FCD1D8A9B5D001E51C0 /* RegisterFinishVC.m in Sources */,
 				CAF28ACB1D8A897000B76E8A /* activityViewController.m in Sources */,
 				CA22DCC71D88588000D6F7C0 /* API.m in Sources */,

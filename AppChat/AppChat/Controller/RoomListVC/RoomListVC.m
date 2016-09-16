@@ -18,23 +18,32 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     _arrListRoom = [[NSMutableArray alloc]init];
-    RoomDto * room = [[RoomDto alloc]init];
-    for (int i = 0; i<10; i++) {
-        room.name = [NSString stringWithFormat:@"say Hello %d",i];
-        room.menber = @"Sep, Son, Mina, Sang";
-        [_arrListRoom addObject:room];
-    }
-
+    [self getDataListRoom];
     [self createActivity];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        [self controlActivity:NO];
-    });
-    [self controlActivity:YES];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - LoadingDataAPI 
+
+- (void)getDataListRoom {
+    [self controlActivity:YES];
+    [API getListRoomDtoprocessAPI:@"room" method:@"GET" header:nil callback:^(BOOL success, id data) {
+        dispatch_async(dispatch_get_main_queue(), ^(){
+        for(NSDictionary * dic in data) {
+            RoomDto * room = [[RoomDto alloc]init];
+            room.name = [dic objectForKey:@"name"];
+            room.slogan= [dic objectForKey:@"slogan"];
+            room.idRoom = [dic objectForKey:@"_id"];
+            [_arrListRoom addObject:room];
+        }
+        [_tbvRoomList reloadData];
+        [self controlActivity:NO];
+        });
+    }];
 }
 
 #pragma CreateLoading
@@ -85,7 +94,7 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     (indexPath.row % 2 == 0)? (cell.imvBackground.image = [UIImage imageNamed:@"cellListRoomLeft"]) : (cell.imvBackground.image = [UIImage imageNamed:@"cellListRoomRight"]);
     cell.lblTitleRoom.text = room.name;
-    cell.lblMenberRoom.text = room.menber;
+    cell.lblMenberRoom.text = room.slogan;
     return cell;
 }
 
@@ -118,24 +127,52 @@
                                                            UITextField * txtNameRoom = alert.textFields.firstObject;
                                                            UITextField * txtMenber = alert.textFields.lastObject;
                                                            room.name = txtNameRoom.text;
-                                                           room.menber =txtMenber.text;
-                                                           [_arrListRoom addObject:room];
-                                                           [_tbvRoomList reloadData];
+                                                           room.slogan =txtMenber.text;
+                                                           room.idOwner = ((AppDelegate*)[UIApplication sharedApplication].delegate).strUserID;
+                                                           
                                                            [self dismissKeyboard];
+                                                           
+                                                           [API getCreateRoomDtoprocessAPI:@"room" method:@"POST" header:nil body:room callback:^(BOOL success, id data) {
+                                                               NSString * mess;
+                                                               if (success) {
+                                                                   mess = @"Create success";
+                                                                   [_arrListRoom addObject:room];
+                                                                
+                                                               } else {
+                                                                   mess =@"User can only create one room";
+                                                               }
+                                                               UIAlertController * alert =[UIAlertController alertControllerWithTitle:@"Warring"
+                                                                                                                              message:mess
+                                                                                                                       preferredStyle:UIAlertControllerStyleAlert];
+                                                               UIAlertAction *OK =[UIAlertAction actionWithTitle:@"OK"
+                                                                                                           style:UIAlertActionStyleDefault
+                                                                                                         handler:^(UIAlertAction * _Nonnull action) {                           [_tbvRoomList reloadData];
+                                                                                                             
+                                                                                                         }];
+                                                               [alert addAction:OK];
+                                                               [self presentViewController:alert animated:YES completion:nil];
+                                                           }];
+                                                           
+            
                                                        }];
     
     [alert addTextFieldWithConfigurationHandler:^(UITextField *txtNameRoom) {
         txtNameRoom.placeholder =@"Room name";
         txtNameRoom.text = @"";
     }];
-    [alert addTextFieldWithConfigurationHandler:^(UITextField *txtMenber) {
-        txtMenber.placeholder = @"Slogan";
-        txtMenber.text = @"";
+    [alert addTextFieldWithConfigurationHandler:^(UITextField *txtSlogan) {
+        txtSlogan.placeholder = @"Slogan";
+        txtSlogan.text = @"";
     }];
     
     [alert addAction:saveAction];
     [alert addAction:cancelAction];
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (IBAction)onClickedProfile:(id)sender {
+    ProfileVC *vProfile =[self.storyboard instantiateViewControllerWithIdentifier:@"ProfileVC"];
+    [self.navigationController pushViewController:vProfile animated:YES];
 }
 
 

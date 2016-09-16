@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
 #import "RoomDto.h"
 
@@ -15,6 +16,7 @@
 
 #import "activityViewController.h"
 #import "RoomChatVC.h"
+#import "ProfileVC.h"
 
 #import "API.h"
 

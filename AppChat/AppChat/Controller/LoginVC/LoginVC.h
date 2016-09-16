@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+#import "API.h"
+#import "AppDelegate.h"
+
+#import "UserDto.h"
+#import "LoginDto.h"
+#import "SignDto.h"
+
+#import "activityViewController.h"
+#import "RegisterVC.h"
+#import "RoomListVC.h"
+
 @interface LoginVC : UIViewController
 
 

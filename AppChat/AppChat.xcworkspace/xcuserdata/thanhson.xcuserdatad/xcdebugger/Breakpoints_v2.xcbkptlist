@@ -10,13 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Modal/API/API.m"
-            timestampString = "495652582.212332"
+            timestampString = "495687369.028342"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "+getRegisterDtoprocessAPI:method:header:body:callback:"
-            landmarkType = "5">
+            startingLineNumber = "109"
+            endingLineNumber = "109">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -25,46 +23,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Modal/API/API.m"
-            timestampString = "495652584.144739"
+            filePath = "AppChat/Controller/RegisterVC/RegisterFinishVC.m"
+            timestampString = "495692642.208949"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "+getRegisterDtoprocessAPI:method:header:body:callback:"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "-onClickedRegister:"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "+[API getRegisterDtoprocessAPI:method:header:body:callback:]"
-                  moduleName = "AppChat"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/thanhson/Desktop/ChatSocket/AppChat/Modal/API/API.m"
-                  timestampString = "495652943.487875"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "84"
-                  endingLineNumber = "84"
-                  offsetFromSymbolStart = "1012">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__60+[API getRegisterDtoprocessAPI:method:header:body:callback:]_block_invoke"
-                  moduleName = "AppChat"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/thanhson/Desktop/ChatSocket/AppChat/Modal/API/API.m"
-                  timestampString = "495652943.488106"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "85"
-                  endingLineNumber = "85"
-                  offsetFromSymbolStart = "54">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

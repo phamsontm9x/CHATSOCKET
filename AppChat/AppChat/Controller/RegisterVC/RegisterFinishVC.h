@@ -16,7 +16,7 @@
 
 #define serverRegister @"user/register"
 
-@interface RegisterFinishVC : UIViewController
+@interface RegisterFinishVC : UIViewController<UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *tfFullName;
 @property (weak, nonatomic) IBOutlet UITextField *tfGender;

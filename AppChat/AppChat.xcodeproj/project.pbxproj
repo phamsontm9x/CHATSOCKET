@@ -16,6 +16,9 @@
 		6852B0B91D87D5DE00B68763 /* AppChatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6852B0B81D87D5DE00B68763 /* AppChatTests.m */; };
 		6852B0C41D87D5DE00B68763 /* AppChatUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6852B0C31D87D5DE00B68763 /* AppChatUITests.m */; };
 		B1137DF1FB6445BA93E01A8A /* Pods_AppChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3F2686AB55589CC98F8DDD /* Pods_AppChat.framework */; };
+		CA1F7F981D8BC5F200E95EE6 /* RoomListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1F7F971D8BC5F200E95EE6 /* RoomListVC.m */; };
+		CA1F7F9C1D8BCC2800E95EE6 /* RoomLeftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1F7F9B1D8BCC2800E95EE6 /* RoomLeftCell.m */; };
+		CA1F7F9F1D8BCC3700E95EE6 /* RoomRightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1F7F9E1D8BCC3700E95EE6 /* RoomRightCell.m */; };
 		CA22DCBE1D88586000D6F7C0 /* LoginDto.m in Sources */ = {isa = PBXBuildFile; fileRef = CA22DCBD1D88586000D6F7C0 /* LoginDto.m */; };
 		CA22DCC11D88586B00D6F7C0 /* SignDto.m in Sources */ = {isa = PBXBuildFile; fileRef = CA22DCC01D88586B00D6F7C0 /* SignDto.m */; };
 		CA22DCC41D88587600D6F7C0 /* UserDto.m in Sources */ = {isa = PBXBuildFile; fileRef = CA22DCC31D88587600D6F7C0 /* UserDto.m */; };
@@ -64,6 +67,12 @@
 		6852B0BF1D87D5DE00B68763 /* AppChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6852B0C31D87D5DE00B68763 /* AppChatUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppChatUITests.m; sourceTree = "<group>"; };
 		6852B0C51D87D5DE00B68763 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA1F7F961D8BC5F200E95EE6 /* RoomListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomListVC.h; sourceTree = "<group>"; };
+		CA1F7F971D8BC5F200E95EE6 /* RoomListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomListVC.m; sourceTree = "<group>"; };
+		CA1F7F9A1D8BCC2800E95EE6 /* RoomLeftCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomLeftCell.h; sourceTree = "<group>"; };
+		CA1F7F9B1D8BCC2800E95EE6 /* RoomLeftCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomLeftCell.m; sourceTree = "<group>"; };
+		CA1F7F9D1D8BCC3700E95EE6 /* RoomRightCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomRightCell.h; sourceTree = "<group>"; };
+		CA1F7F9E1D8BCC3700E95EE6 /* RoomRightCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomRightCell.m; sourceTree = "<group>"; };
 		CA22DCBC1D88586000D6F7C0 /* LoginDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginDto.h; sourceTree = "<group>"; };
 		CA22DCBD1D88586000D6F7C0 /* LoginDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginDto.m; sourceTree = "<group>"; };
 		CA22DCBF1D88586B00D6F7C0 /* SignDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignDto.h; sourceTree = "<group>"; };
@@ -190,6 +199,26 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CA1F7F951D8BC5E300E95EE6 /* RoomListVC */ = {
+			isa = PBXGroup;
+			children = (
+				CA1F7F961D8BC5F200E95EE6 /* RoomListVC.h */,
+				CA1F7F971D8BC5F200E95EE6 /* RoomListVC.m */,
+			);
+			path = RoomListVC;
+			sourceTree = "<group>";
+		};
+		CA1F7F991D8BCC0C00E95EE6 /* RoomCell */ = {
+			isa = PBXGroup;
+			children = (
+				CA1F7F9A1D8BCC2800E95EE6 /* RoomLeftCell.h */,
+				CA1F7F9B1D8BCC2800E95EE6 /* RoomLeftCell.m */,
+				CA1F7F9D1D8BCC3700E95EE6 /* RoomRightCell.h */,
+				CA1F7F9E1D8BCC3700E95EE6 /* RoomRightCell.m */,
+			);
+			path = RoomCell;
+			sourceTree = "<group>";
+		};
 		CA22DCB61D88580700D6F7C0 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +258,7 @@
 		CA2F1F161D87E25400090C9A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CA1F7F951D8BC5E300E95EE6 /* RoomListVC */,
 				CAF28AC21D8A7A7200B76E8A /* RegisterVC */,
 				CAF28ABE1D8A7A5800B76E8A /* LoginVC */,
 				6852B0A11D87D5DE00B68763 /* AppDelegate.h */,
@@ -254,6 +284,7 @@
 		CA2F1F181D87E26F00090C9A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CA1F7F991D8BCC0C00E95EE6 /* RoomCell */,
 				CAF28AC61D8A896500B76E8A /* ActitivityLoading */,
 				6852B0A71D87D5DE00B68763 /* Main.storyboard */,
 				6852B0AC1D87D5DE00B68763 /* LaunchScreen.storyboard */,
@@ -485,6 +516,8 @@
 			files = (
 				CAED0B421D8A45E500C553B6 /* RoomDto.m in Sources */,
 				6852B0A61D87D5DE00B68763 /* ViewController.m in Sources */,
+				CA1F7F981D8BC5F200E95EE6 /* RoomListVC.m in Sources */,
+				CA1F7F9C1D8BCC2800E95EE6 /* RoomLeftCell.m in Sources */,
 				CAF28AC11D8A7A5800B76E8A /* LoginVC.m in Sources */,
 				CA22DCBE1D88586000D6F7C0 /* LoginDto.m in Sources */,
 				CA22DCC11D88586B00D6F7C0 /* SignDto.m in Sources */,
@@ -494,6 +527,7 @@
 				CAEF5FCD1D8A9B5D001E51C0 /* RegisterFinishVC.m in Sources */,
 				CAF28ACB1D8A897000B76E8A /* activityViewController.m in Sources */,
 				CA22DCC71D88588000D6F7C0 /* API.m in Sources */,
+				CA1F7F9F1D8BCC3700E95EE6 /* RoomRightCell.m in Sources */,
 				6852B0A01D87D5DE00B68763 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

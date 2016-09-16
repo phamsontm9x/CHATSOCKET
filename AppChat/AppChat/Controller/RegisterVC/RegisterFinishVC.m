@@ -7,6 +7,7 @@
 //
 
 #import "RegisterFinishVC.h"
+#import "AppDelegate.h"
 
 
 @implementation RegisterFinishVC {
@@ -25,6 +26,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    _tfFullName.text =  ((AppDelegate*)[UIApplication sharedApplication].delegate).strUserName;
+    _tfGender.text =  ((AppDelegate*)[UIApplication sharedApplication].delegate).strGender;
+    _tfBrithday.text =  ((AppDelegate*)[UIApplication sharedApplication].delegate).strBrithday;
 }
 
 #pragma init
@@ -57,7 +64,7 @@
     _userRegister.phone = @"0978506324";
     _userRegister.image = @"Sondeptrai";
     _userRegister.birthday = _tfBrithday.text;
-    _userRegister.gender = @"false";
+    ([_tfGender isEqual:@"Male"])? (_userRegister.gender = @"false") : (_userRegister.gender = @"true");
     _userRegister.name = _tfFullName.text;
     [API getRegisterDtoprocessAPI:serverRegister method:@"POST" header:nil body:_userRegister callback:^(BOOL success, id data){
         
@@ -84,7 +91,51 @@
 }
 
 - (IBAction)onClickedPrevious:(UIButton *)btn {
+    
+    ((AppDelegate*)[UIApplication sharedApplication].delegate).strUserName = _tfFullName.text;
+    ((AppDelegate*)[UIApplication sharedApplication].delegate).strGender = _tfGender.text;
+    ((AppDelegate*)[UIApplication sharedApplication].delegate).strBrithday = _tfBrithday.text;
     [self dismissViewControllerAnimated:NO completion:nil];
+}
+
+- (IBAction)onClickedSelect:(UIButton *)btn {
+    if (btn.tag == 11) {
+        UIAlertController * alert =[UIAlertController alertControllerWithTitle:@"Select Gender"
+                                                                       message:nil
+                                                                preferredStyle:UIAlertControllerStyleActionSheet];
+        UIAlertAction * btnMale = [UIAlertAction actionWithTitle:@"Male"
+                                                           style:UIAlertActionStyleDefault
+                                                         handler:^(UIAlertAction * _Nonnull action) {
+            _tfGender.text = @"Male";
+        }];
+        UIAlertAction * btnFemale = [UIAlertAction actionWithTitle:@"Female"
+                                                             style:UIAlertActionStyleDefault
+                                                           handler:^(UIAlertAction * _Nonnull action) {
+            _tfGender.text = @"Female";
+        }];
+        [alert addAction:btnMale];
+        [alert addAction:btnFemale];
+        [self presentViewController:alert animated:YES completion:nil];
+    } else {
+        
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil
+                                                                                 message:@"\n\n\n\n\n\n\n\n\n"
+                                                                          preferredStyle:UIAlertControllerStyleActionSheet];
+        alertController.modalInPopover = YES;
+        UIDatePicker *picker = [[UIDatePicker alloc] init];
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"yyyy-MM-dd"];
+        [picker setDatePickerMode:UIDatePickerModeDate];
+        [alertController.view addSubview:picker];
+        [alertController addAction:({
+            UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+                _tfBrithday.text = [dateFormat stringFromDate:picker.date];
+            }];
+            action;
+        })];
+        [self presentViewController:alertController  animated:YES completion:nil];
+    }
+
 }
 
 #pragma mark -Delegate UITextField

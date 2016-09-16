@@ -62,8 +62,6 @@
     LoginDto * loginDto = [[LoginDto alloc]init];
     loginDto.email = _tfUserName.text;
     loginDto.password = _tfPassword.text;
-//    loginDto.email = @"aabccdef3@gmail.com";
-//    loginDto.password = @"Aa12345";
     [API getLoginDtoprocessAPI:serverLogin method:@"POST" header:nil body:loginDto callback:^(BOOL success, id data) {
         dispatch_async(dispatch_get_main_queue(), ^(){
             [self controlActivity:NO];

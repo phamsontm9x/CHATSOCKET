@@ -14,6 +14,7 @@
 #import "RoomRightCell.h"
 
 #import "activityViewController.h"
+#import "RoomChatVC.h"
 
 #import "API.h"
 

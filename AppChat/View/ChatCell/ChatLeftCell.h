@@ -10,4 +10,7 @@
 
 @interface ChatLeftCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIButton *btnIcon;
+@property (weak, nonatomic) IBOutlet UILabel *lblMessager;
+
 @end

@@ -10,6 +10,7 @@
 
 @implementation RoomListVC {
     activityViewController *_activityView;
+    UITapGestureRecognizer *_tap;
 }
 
 - (void)viewDidLoad {
@@ -25,7 +26,6 @@
     }
 
     [self createActivity];
-    [self createTapdismissKeyboard];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         [self controlActivity:NO];
     });
@@ -59,14 +59,15 @@
 #pragma mark -Delegate UITextField
 
 - (void)createTapdismissKeyboard {
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+    _tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
-    [self.view addGestureRecognizer:tap];
+    [self.view addGestureRecognizer:_tap];
 }
 
 - (void)dismissKeyboard {
     [self.view endEditing:YES];
+    [self.view removeGestureRecognizer:_tap];
 }
 
 #pragma mark - UITableView
@@ -89,10 +90,17 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    RoomDto * room = [_arrListRoom objectAtIndex:indexPath.row];
+    
+    RoomChatVC *vRoomChat =[self.storyboard instantiateViewControllerWithIdentifier:@"RoomChatVC"];
+    vRoomChat.strTitle = room.name;
+    [self.navigationController pushViewController:vRoomChat animated:YES];
 
 }
 - (IBAction)onClickedCreateRoom:(id)sender {
     RoomDto * room = [[RoomDto alloc]init];
+    [self createTapdismissKeyboard];
 
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"CreateRoom"
                                                                    message:nil
@@ -100,7 +108,9 @@
     
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
                                                            style:UIAlertActionStyleDefault
-                                                         handler:nil];
+                                                         handler:^(UIAlertAction * _Nonnull action) {
+                                                             [self dismissKeyboard];
+                                                         }];
     
     UIAlertAction *saveAction = [UIAlertAction actionWithTitle:@"Create"
                                                          style:UIAlertActionStyleDefault
@@ -111,6 +121,7 @@
                                                            room.menber =txtMenber.text;
                                                            [_arrListRoom addObject:room];
                                                            [_tbvRoomList reloadData];
+                                                           [self dismissKeyboard];
                                                        }];
     
     [alert addTextFieldWithConfigurationHandler:^(UITextField *txtNameRoom) {

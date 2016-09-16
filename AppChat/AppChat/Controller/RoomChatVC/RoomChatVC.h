@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RoomChatVC : UIViewController
+#import "ChatLeftCell.h"
+#import "ChatRightCell.h"
+
+@import SocketIO;
+
+@interface RoomChatVC : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *tbvChatRoom;
+@property (strong, nonatomic) NSString *strTitle;
+@property (weak, nonatomic) IBOutlet UILabel *lblTitle;
 
 @end

@@ -11,5 +11,6 @@
 @interface RoomLeftCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *lblTitleRoom;
 @property (weak, nonatomic) IBOutlet UILabel *lblMenberRoom;
+@property (weak, nonatomic) IBOutlet UIImageView *imvBackground;
 
 @end

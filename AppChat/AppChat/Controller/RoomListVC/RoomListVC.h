@@ -8,6 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RoomListVC : UIViewController
+#import "RoomDto.h"
+
+#import "RoomLeftCell.h"
+#import "RoomRightCell.h"
+
+#import "activityViewController.h"
+
+#import "API.h"
+
+
+@interface RoomListVC : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *tbvRoomList;
+@property (weak, nonatomic) IBOutlet UILabel *lblRoomCount;
+@property (strong, nonatomic) NSMutableArray * arrListRoom;
 
 @end

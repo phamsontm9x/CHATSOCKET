@@ -16,6 +16,7 @@
 
 #import "activityViewController.h"
 #import "RegisterVC.h"
+#import "RoomListVC.h"
 
 #define serverLogin @"user/login"
 
@@ -77,7 +78,10 @@
                                                                     preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *OK =[UIAlertAction actionWithTitle:@"OK"
                                                         style:UIAlertActionStyleDefault
-                                                      handler:nil];
+                                                      handler:^(UIAlertAction * _Nonnull action) {
+                                                          RoomListVC *vRoomList =[self.storyboard instantiateViewControllerWithIdentifier:@"RoomListVC"];
+                                                          [self.navigationController pushViewController:vRoomList animated:YES];
+                                                      }];
             [alert addAction:OK];
             [self presentViewController:alert animated:YES completion:nil];
 

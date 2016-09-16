@@ -10,4 +10,7 @@
 
 @interface RoomDto : NSObject
 
+@property (nonatomic ,strong) NSString *name;
+@property (nonatomic ,strong) NSString *menber;
+
 @end

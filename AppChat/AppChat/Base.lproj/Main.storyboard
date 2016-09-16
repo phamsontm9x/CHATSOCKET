@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="od6-Lg-otI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IyD-FG-90k">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -804,7 +805,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundListRoom" translatesAutoresizingMaskIntoConstraints="NO" id="2Y4-9g-Bxk">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UxK-0o-5ZO">
+                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UxK-0o-5ZO">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="75"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sayHello Chat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCu-MR-3DR">
@@ -818,11 +819,11 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 rooms active" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJG-p7-Iur">
-                                        <rect key="frame" x="249" y="44" width="103" height="21"/>
+                                        <rect key="frame" x="251" y="44" width="98" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="YXe-Aj-OAs"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -832,7 +833,10 @@
                                             <constraint firstAttribute="width" constant="40" id="eRI-oh-g7n"/>
                                             <constraint firstAttribute="height" constant="40" id="v3n-tc-BFg"/>
                                         </constraints>
-                                        <state key="normal" title=":D"/>
+                                        <state key="normal" backgroundImage="createRoom"/>
+                                        <connections>
+                                            <action selector="onClickedCreateRoom:" destination="od6-Lg-otI" eventType="touchUpInside" id="6lc-yM-4mx"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.34906575444053584" green="0.81602282863879716" blue="0.89628125000000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -846,7 +850,7 @@
                                     <constraint firstItem="PCu-MR-3DR" firstAttribute="centerX" secondItem="UxK-0o-5ZO" secondAttribute="centerX" id="ugS-OG-jSG"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qTH-eF-EoQ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qTH-eF-EoQ">
                                 <rect key="frame" x="0.0" y="75" width="600" height="525"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -854,20 +858,20 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2yY-mB-iAM" id="l3f-in-9xh">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cellListRoomLeft" translatesAutoresizingMaskIntoConstraints="NO" id="q0S-pt-5oo">
-                                                    <rect key="frame" x="60" y="10" width="481" height="79"/>
+                                                <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cellListRoomLeft" translatesAutoresizingMaskIntoConstraints="NO" id="q0S-pt-5oo">
+                                                    <rect key="frame" x="30" y="10" width="541" height="79"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sayHello Chat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBE-IN-wUg">
-                                                    <rect key="frame" x="239" y="37" width="123" height="26"/>
+                                                    <rect key="frame" x="239" y="27" width="123" height="26"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="19"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sep Khang, Mina, Son" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9f-Sa-gN9">
-                                                    <rect key="frame" x="231" y="65" width="139" height="14"/>
+                                                    <rect key="frame" x="231" y="55" width="139" height="20"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -877,16 +881,22 @@
                                                 <constraint firstItem="L9f-Sa-gN9" firstAttribute="centerX" secondItem="l3f-in-9xh" secondAttribute="centerX" id="8tM-YI-jNR"/>
                                                 <constraint firstItem="L9f-Sa-gN9" firstAttribute="top" secondItem="pBE-IN-wUg" secondAttribute="bottom" constant="2" id="FeT-pb-Fh2"/>
                                                 <constraint firstItem="q0S-pt-5oo" firstAttribute="centerY" secondItem="l3f-in-9xh" secondAttribute="centerY" id="Ia0-Cl-1y2"/>
-                                                <constraint firstItem="q0S-pt-5oo" firstAttribute="leading" secondItem="l3f-in-9xh" secondAttribute="leading" constant="60" id="K7t-cj-oBF"/>
-                                                <constraint firstItem="pBE-IN-wUg" firstAttribute="centerY" secondItem="l3f-in-9xh" secondAttribute="centerY" id="MbF-qE-ChY"/>
+                                                <constraint firstItem="q0S-pt-5oo" firstAttribute="leading" secondItem="l3f-in-9xh" secondAttribute="leading" constant="30" id="K7t-cj-oBF"/>
+                                                <constraint firstItem="pBE-IN-wUg" firstAttribute="centerY" secondItem="l3f-in-9xh" secondAttribute="centerY" multiplier="0.8" id="MbF-qE-ChY"/>
                                                 <constraint firstItem="q0S-pt-5oo" firstAttribute="centerX" secondItem="l3f-in-9xh" secondAttribute="centerX" id="QHH-5n-5KT"/>
                                                 <constraint firstItem="pBE-IN-wUg" firstAttribute="centerX" secondItem="l3f-in-9xh" secondAttribute="centerX" id="fPx-Rg-WHj"/>
                                                 <constraint firstItem="q0S-pt-5oo" firstAttribute="top" secondItem="l3f-in-9xh" secondAttribute="top" constant="10" id="mOL-Cb-7JQ"/>
                                                 <constraint firstAttribute="bottom" secondItem="L9f-Sa-gN9" secondAttribute="bottom" constant="20" id="rJF-P9-SiQ"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="rJF-P9-SiQ"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
+                                            <outlet property="imvBackground" destination="q0S-pt-5oo" id="3R4-1D-tqE"/>
                                             <outlet property="lblMenberRoom" destination="L9f-Sa-gN9" id="pyz-JF-VUA"/>
                                             <outlet property="lblTitleRoom" destination="pBE-IN-wUg" id="dOi-nD-jdw"/>
                                         </connections>
@@ -895,20 +905,20 @@
                                         <rect key="frame" x="0.0" y="128" width="600" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EDZ-ki-Vdb" id="VJ1-iD-b7C">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cellListRoomRight" translatesAutoresizingMaskIntoConstraints="NO" id="jip-vX-0FD">
-                                                    <rect key="frame" x="60" y="10" width="481" height="79"/>
+                                                <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cellListRoomRight" translatesAutoresizingMaskIntoConstraints="NO" id="jip-vX-0FD">
+                                                    <rect key="frame" x="30" y="10" width="541" height="79"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sayHello Chat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2P0-LP-esB">
-                                                    <rect key="frame" x="239" y="37" width="123" height="26"/>
+                                                    <rect key="frame" x="239" y="27" width="123" height="26"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="19"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mina, Sang, Son, Sep" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcj-78-x5N">
-                                                    <rect key="frame" x="233" y="65" width="134" height="14"/>
+                                                    <rect key="frame" x="233" y="55" width="134" height="20"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -916,15 +926,20 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="jip-vX-0FD" firstAttribute="centerY" secondItem="VJ1-iD-b7C" secondAttribute="centerY" id="2Rh-zj-OKe"/>
-                                                <constraint firstItem="jip-vX-0FD" firstAttribute="leading" secondItem="VJ1-iD-b7C" secondAttribute="leading" constant="60" id="Ciw-Bt-9Nf"/>
+                                                <constraint firstItem="jip-vX-0FD" firstAttribute="leading" secondItem="VJ1-iD-b7C" secondAttribute="leading" constant="30" id="Ciw-Bt-9Nf"/>
                                                 <constraint firstAttribute="bottom" secondItem="kcj-78-x5N" secondAttribute="bottom" constant="20" id="F7c-au-blU"/>
                                                 <constraint firstItem="2P0-LP-esB" firstAttribute="centerX" secondItem="VJ1-iD-b7C" secondAttribute="centerX" id="FCl-60-s5r"/>
                                                 <constraint firstItem="jip-vX-0FD" firstAttribute="top" secondItem="VJ1-iD-b7C" secondAttribute="top" constant="10" id="FgC-aG-x16"/>
                                                 <constraint firstItem="kcj-78-x5N" firstAttribute="top" secondItem="2P0-LP-esB" secondAttribute="bottom" constant="2" id="YzH-6b-SQx"/>
                                                 <constraint firstItem="jip-vX-0FD" firstAttribute="centerX" secondItem="VJ1-iD-b7C" secondAttribute="centerX" id="cIl-mr-nBb"/>
-                                                <constraint firstItem="2P0-LP-esB" firstAttribute="centerY" secondItem="VJ1-iD-b7C" secondAttribute="centerY" id="jmx-nN-2pL"/>
+                                                <constraint firstItem="2P0-LP-esB" firstAttribute="centerY" secondItem="VJ1-iD-b7C" secondAttribute="centerY" multiplier="0.8" id="jmx-nN-2pL"/>
                                                 <constraint firstItem="kcj-78-x5N" firstAttribute="centerX" secondItem="VJ1-iD-b7C" secondAttribute="centerX" id="vIJ-pc-bB8"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="F7c-au-blU"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
@@ -954,6 +969,10 @@
                             <constraint firstItem="qTH-eF-EoQ" firstAttribute="top" secondItem="UxK-0o-5ZO" secondAttribute="bottom" id="xqc-Vb-zKJ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="lblRoomCount" destination="OJG-p7-Iur" id="zKg-Kk-QJH"/>
+                        <outlet property="tbvRoomList" destination="qTH-eF-EoQ" id="KFJ-hV-r9T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="94J-Oa-WmF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -968,6 +987,7 @@
         <image name="btnPrevious" width="269" height="40"/>
         <image name="cellListRoomLeft" width="263" height="57"/>
         <image name="cellListRoomRight" width="263" height="57"/>
+        <image name="createRoom" width="32" height="32"/>
         <image name="forgotpassword" width="142" height="16"/>
         <image name="haveacount" width="149" height="15"/>
         <image name="login" width="269" height="40"/>

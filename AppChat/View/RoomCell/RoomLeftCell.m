@@ -10,4 +10,8 @@
 
 @implementation RoomLeftCell
 
+- (void)layoutSubviews {
+
+}
+
 @end

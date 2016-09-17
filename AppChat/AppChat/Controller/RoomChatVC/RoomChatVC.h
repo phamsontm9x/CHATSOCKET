@@ -13,9 +13,11 @@
 
 @import SocketIO;
 
-@interface RoomChatVC : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface RoomChatVC : UIViewController<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tbvChatRoom;
 @property (strong, nonatomic) NSString *strTitle;
 @property (weak, nonatomic) IBOutlet UILabel *lblTitle;
+@property (weak, nonatomic) IBOutlet UITextView *tfMess;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *botConstraint;
 
 @end

@@ -28,6 +28,7 @@
 @property (strong, nonatomic) NSString *strTitle;
 @property (strong, nonatomic) NSString *strUserName;
 @property (strong, nonatomic) NSString *strRoomId;
+@property (strong, nonatomic) NSString *strUserId;
 
 @property (strong, nonatomic) NSMutableArray *arrMess;
 

@@ -19,8 +19,8 @@
     // Do any additional setup after loading the view, typically from a nib.
     [self createActivity];
     [self createTapdismissKeyboard];
-    _tfUserName.text=@"thanhsoncun@gmail.com";
-    _tfPassword.text=@"Thanhson1";
+    _tfUserName.text=@"aabccdef2@gmail.com";
+    _tfPassword.text=@"Aa12345";
 }
 
 - (void)didReceiveMemoryWarning {

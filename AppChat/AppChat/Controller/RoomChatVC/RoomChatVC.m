@@ -10,7 +10,6 @@
 #define server @"http://52.221.225.151:3000"
 
 @implementation RoomChatVC {
-    MessDto * _Mess;
 }
 
 - (void)viewDidLoad {
@@ -19,8 +18,9 @@
     _tbvChatRoom.estimatedRowHeight =50;
     _lblTitle.text = _strTitle;
     [self createData];
-    [self createTF];
     [self createSocketIo];
+    [self createTF];
+    [self listenServer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,11 +30,9 @@
 
 - (void)createData {
     _arrMess = [[NSMutableArray alloc]init];
-    _Mess = [[MessDto alloc]init];
     _strRoomId = ((AppDelegate*)[UIApplication sharedApplication].delegate).strRoomID;
     _strUserName = ((AppDelegate*)[UIApplication sharedApplication].delegate).strEmail;
-    _Mess.userName = _strUserName;
-    _Mess.roomID = _strRoomId;
+    _strUserId = ((AppDelegate*)[UIApplication sharedApplication].delegate).strUserID;
 }
 
 #pragma mark - SocketIO
@@ -43,19 +41,24 @@
     NSURL* url = [[NSURL alloc] initWithString:server];
     _socket = [[SocketIOClient alloc] initWithSocketURL:url config:@{@"log": @YES, @"forcePolling": @YES}];
     [_socket connect];
-   // [self listenServer];
+ //   [self listenServer];
+    float delayInSeconds = 2.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [self.socket emit:@"client-join-room" withItems:@[_strUserId,_strRoomId]];
+    });
+
 }
 
 -(void)listenServer{
-
     [self.socket once:@"server-send-message" callback:^(NSArray * data, SocketAckEmitter * ack) {
+        [self listenServer];
         NSDictionary * dic = [data objectAtIndex:0];
         NSMutableDictionary *statuscode = [dic objectForKey:@"statuscode"];
         NSMutableDictionary *results = [dic objectForKey:@"results"];
         NSString * stt = [NSString stringWithFormat:@"%@",statuscode];
         if ([stt isEqual:@"200"]) {
             [self addData:results];
-            [self listenServer];
         }
     }];
 
@@ -63,12 +66,13 @@
 
 -(void)addData:(NSDictionary*)data{
     MessDto * message = [[MessDto alloc]init];
-    NSArray * info = [data valueForKey:@"results"];
-    message.userName = [info valueForKey:@"owner"];
-    message.mess = [info valueForKey:@"content"];
-    message.image = [info valueForKey:@"image"];
-    [_arrMess addObject:message];
-    [_tbvChatRoom reloadData];
+    message.userName = [data valueForKey:@"owner"];
+    message.mess = [data valueForKey:@"content"];
+    message.image = [data valueForKey:@"image"];
+    if (![message.userName isEqual:_strUserName]) {
+        [_arrMess addObject:message];
+        [_tbvChatRoom reloadData];
+    }
 }
 
 
@@ -89,12 +93,14 @@
         ChatRightCell * cell = [_tbvChatRoom dequeueReusableCellWithIdentifier:cellID];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.lblMessager.text = mess.mess;
+        cell.tag = indexPath.row;
         return cell;
     } else {
         cellID = @"ChatLeftCell";
         ChatLeftCell * cell = [_tbvChatRoom dequeueReusableCellWithIdentifier:cellID];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.lblMessager.text = mess.mess;
+        cell.tag = indexPath.row;
         return cell;
     }
 }
@@ -142,7 +148,7 @@
         [self animationViewWithconstant:0];
     });
     if ([textView.text isEqualToString:@""]) {
-        textView.text = @"placeholder text here...";
+        textView.text = @"Write your message...";
         textView.textColor = [UIColor lightGrayColor]; //optional
     }
     [textView resignFirstResponder];
@@ -156,14 +162,23 @@
 }
 
 - (IBAction)onSelectedSend:(id)sender {
-    _Mess.image =@"abc";
-    _Mess.mess = _tfMess.text;
-    [_socket emit:@"client-send-message" withItems:@[_Mess.roomID,_Mess.userName,_Mess.mess,_Mess.image]];
-    [self listenServer];
+     MessDto * message = [[MessDto alloc]init];
+    message.image =@"abc";
+    message.mess = _tfMess.text;
+    message.userName = _strUserName;
+    message.roomID = _strRoomId;
+    [_arrMess addObject:message];
+    [_tbvChatRoom reloadData];
+    [_socket emit:@"client-send-message" withItems:@[message.roomID,message.userName,message.mess,message.image]];
+    [_tfMess resignFirstResponder];
+    _tfMess.text = @"Write your message...";
+    _tfMess.textColor = [UIColor lightGrayColor];
 }
 
 - (IBAction)onSelectedProfile:(UIButton*)btn {
     ProfileVC *vProfile =[self.storyboard instantiateViewControllerWithIdentifier:@"ProfileVC"];
+    MessDto * mess = [_arrMess objectAtIndex:btn.tag];
+    vProfile.email = mess.userName;
     [self.navigationController pushViewController:vProfile animated:YES];
 }
 

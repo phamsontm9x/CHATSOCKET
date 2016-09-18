@@ -24,6 +24,12 @@
     [self getDataListRoom];
     [self createActivity];
     [self createSocketIo];
+    [self controlActivity:YES];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+
 }
 
 - (void)didReceiveMemoryWarning {

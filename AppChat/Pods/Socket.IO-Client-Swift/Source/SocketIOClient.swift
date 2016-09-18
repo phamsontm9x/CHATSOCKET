@@ -311,7 +311,7 @@ public final class SocketIOClient : NSObject, SocketEngineClient, SocketParsable
         DefaultSocketLogger.Logger.log("Handling event: %@ with data: %@", type: logType, args: event, data ?? "")
 
         dispatch_async(handleQueue) {
-            self.anyHandler?(SocketAnyEvent(event: event, items: data))
+            //self.anyHandler?(SocketAnyEvent(event: event, items: data))
 
             for handler in self.handlers where handler.event == event {
                 handler.executeCallback(data, withAck: ack, withSocket: self)

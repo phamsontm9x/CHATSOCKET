@@ -14,5 +14,6 @@
 @property (nonatomic, strong) NSString *image;
 @property (nonatomic, strong) NSString *mess;
 @property (nonatomic, strong) NSString *roomID;
+@property (nonatomic, strong) NSString *userId;
 
 @end

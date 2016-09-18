@@ -8,6 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
+#import "API.h"
+#import "UserDto.h"
+
+#import "AppDelegate.h"
+
+#import "activityViewController.h"
+
 @interface ProfileVC : UIViewController
+
+@property (nonatomic, strong) NSString *email;
+@property (nonatomic, strong) UserDto * User;
+
+@property (weak, nonatomic) IBOutlet UILabel *lblName;
+@property (weak, nonatomic) IBOutlet UILabel *lblEmail;
+@property (weak, nonatomic) IBOutlet UILabel *lblBirthday;
+@property (weak, nonatomic) IBOutlet UILabel *lblBirthdaySt;
 
 @end

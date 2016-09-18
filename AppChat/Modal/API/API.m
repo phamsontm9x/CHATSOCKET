@@ -185,4 +185,41 @@
     }] resume];
 }
 
++ (void)getUserDtorocessAPI:(NSString* )route
+                     method:(NSString* )method
+                     header:(NSDictionary*)headers
+                   callback:(APICallback)callback {
+    NSString * strUrl = [NSString stringWithFormat:@"%@/%@",server,route];
+    
+    NSMutableURLRequest * request = [[NSMutableURLRequest alloc]init];
+    
+    // route
+    request.URL = [NSURL URLWithString:strUrl];
+    // header
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    // method
+    request.HTTPMethod = method;
+    
+    void (^successCallback)(id data) = ^(id data) {
+        NSMutableDictionary *respondData = [NSJSONSerialization JSONObjectWithData:data
+                                                                           options:NSJSONReadingMutableContainers
+                                                                             error:nil];
+        NSMutableDictionary *statuscode = [respondData objectForKey:@"statuscode"];
+        NSMutableDictionary *results = [respondData objectForKey:@"results"];
+        NSString * stt = [NSString stringWithFormat:@"%@",statuscode];
+        if ([stt isEqual:@"404"]) {
+            callback(NO,results);
+        } else {
+            callback(YES,results);
+        }
+        
+    };
+    
+    [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        successCallback(data);
+        
+    }] resume];
+}
+
 @end

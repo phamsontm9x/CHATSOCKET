@@ -38,5 +38,10 @@ typedef void (^APICallback)(BOOL success, id data);
                            header:(NSDictionary*)headers
                              body:(RoomDto*)body callback:(APICallback)callback;
 
++ (void)getUserDtorocessAPI:(NSString* )route
+                          method:(NSString* )method
+                          header:(NSDictionary*)headers
+                        callback:(APICallback)callback;
+
 
 @end

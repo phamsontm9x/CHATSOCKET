@@ -11,6 +11,8 @@
 #import "ChatLeftCell.h"
 #import "ChatRightCell.h"
 
+#import "ProfileVC.h"
+
 @import SocketIO;
 
 @interface RoomChatVC : UIViewController<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate>

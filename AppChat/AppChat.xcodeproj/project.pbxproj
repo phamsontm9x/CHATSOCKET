@@ -16,6 +16,7 @@
 		6852B0B91D87D5DE00B68763 /* AppChatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6852B0B81D87D5DE00B68763 /* AppChatTests.m */; };
 		6852B0C41D87D5DE00B68763 /* AppChatUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6852B0C31D87D5DE00B68763 /* AppChatUITests.m */; };
 		B1137DF1FB6445BA93E01A8A /* Pods_AppChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3F2686AB55589CC98F8DDD /* Pods_AppChat.framework */; };
+		CA071ECE1D8E3465000FA8E8 /* MessDto.m in Sources */ = {isa = PBXBuildFile; fileRef = CA071ECD1D8E3465000FA8E8 /* MessDto.m */; };
 		CA1F7F981D8BC5F200E95EE6 /* RoomListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1F7F971D8BC5F200E95EE6 /* RoomListVC.m */; };
 		CA1F7F9C1D8BCC2800E95EE6 /* RoomLeftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1F7F9B1D8BCC2800E95EE6 /* RoomLeftCell.m */; };
 		CA1F7F9F1D8BCC3700E95EE6 /* RoomRightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1F7F9E1D8BCC3700E95EE6 /* RoomRightCell.m */; };
@@ -72,6 +73,8 @@
 		6852B0BF1D87D5DE00B68763 /* AppChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6852B0C31D87D5DE00B68763 /* AppChatUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppChatUITests.m; sourceTree = "<group>"; };
 		6852B0C51D87D5DE00B68763 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA071ECC1D8E3465000FA8E8 /* MessDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessDto.h; sourceTree = "<group>"; };
+		CA071ECD1D8E3465000FA8E8 /* MessDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessDto.m; sourceTree = "<group>"; };
 		CA1F7F961D8BC5F200E95EE6 /* RoomListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomListVC.h; sourceTree = "<group>"; };
 		CA1F7F971D8BC5F200E95EE6 /* RoomListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomListVC.m; sourceTree = "<group>"; };
 		CA1F7F9A1D8BCC2800E95EE6 /* RoomLeftCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomLeftCell.h; sourceTree = "<group>"; };
@@ -214,6 +217,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CA071ECB1D8E345A000FA8E8 /* MessDto */ = {
+			isa = PBXGroup;
+			children = (
+				CA071ECC1D8E3465000FA8E8 /* MessDto.h */,
+				CA071ECD1D8E3465000FA8E8 /* MessDto.m */,
+			);
+			path = MessDto;
+			sourceTree = "<group>";
+		};
 		CA1F7F951D8BC5E300E95EE6 /* RoomListVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,6 +322,7 @@
 		CA2F1F171D87E26F00090C9A /* Modal */ = {
 			isa = PBXGroup;
 			children = (
+				CA071ECB1D8E345A000FA8E8 /* MessDto */,
 				CA22DCB91D88585100D6F7C0 /* LoginDto */,
 				CA22DCBA1D88585100D6F7C0 /* SignDto */,
 				CA22DCBB1D88585100D6F7C0 /* UserDto */,
@@ -575,6 +588,7 @@
 				6852B0A61D87D5DE00B68763 /* ViewController.m in Sources */,
 				CA1F7FAA1D8BF43F00E95EE6 /* ChatRightCell.m in Sources */,
 				CA1F7F981D8BC5F200E95EE6 /* RoomListVC.m in Sources */,
+				CA071ECE1D8E3465000FA8E8 /* MessDto.m in Sources */,
 				CA1F7F9C1D8BCC2800E95EE6 /* RoomLeftCell.m in Sources */,
 				CAF28AC11D8A7A5800B76E8A /* LoginVC.m in Sources */,
 				CA7C55C31D8C37460042B347 /* UserOnlineVC.m in Sources */,

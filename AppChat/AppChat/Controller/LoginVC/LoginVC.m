@@ -59,6 +59,7 @@
             if (success) {
                 mess = @"Login success";
                  ((AppDelegate*)[UIApplication sharedApplication].delegate).strUserID = [data objectForKey:@"_id"];
+                 ((AppDelegate*)[UIApplication sharedApplication].delegate).strEmail = [data objectForKey:@"email"];
             } else {
                 mess =@"Username or password not correct";
             }

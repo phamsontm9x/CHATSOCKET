@@ -102,4 +102,10 @@
 - (IBAction)onSelectedSend:(id)sender {
 }
 
+- (IBAction)onSelectedProfile:(UIButton*)btn {
+    ProfileVC *vProfile =[self.storyboard instantiateViewControllerWithIdentifier:@"ProfileVC"];
+    [self.navigationController pushViewController:vProfile animated:YES];
+}
+
+
 @end

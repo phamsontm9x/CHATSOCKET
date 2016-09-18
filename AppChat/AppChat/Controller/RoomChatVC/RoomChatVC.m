@@ -9,15 +9,17 @@
 #import "RoomChatVC.h"
 #define server @"http://52.221.225.151:3000"
 
-@implementation RoomChatVC
+@implementation RoomChatVC {
+    MessDto * _Mess;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     _tbvChatRoom.estimatedRowHeight =50;
     _lblTitle.text = _strTitle;
+    [self createData];
     [self createTF];
-    [self listenServer];
     [self createSocketIo];
 }
 
@@ -26,20 +28,47 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)createData {
+    _arrMess = [[NSMutableArray alloc]init];
+    _Mess = [[MessDto alloc]init];
+    _strRoomId = ((AppDelegate*)[UIApplication sharedApplication].delegate).strRoomID;
+    _strUserName = ((AppDelegate*)[UIApplication sharedApplication].delegate).strEmail;
+    _Mess.userName = _strUserName;
+    _Mess.roomID = _strRoomId;
+}
+
 #pragma mark - SocketIO
 
 - (void)createSocketIo {
     NSURL* url = [[NSURL alloc] initWithString:server];
     _socket = [[SocketIOClient alloc] initWithSocketURL:url config:@{@"log": @YES, @"forcePolling": @YES}];
     [_socket connect];
-    
-    [_socket emit:@"test" withItems:@[@"test"]];
+   // [self listenServer];
 }
 
 -(void)listenServer{
-    [self.socket once:@"test" callback:^(NSArray * data, SocketAckEmitter * ack) {
-        [self listenServer];
+
+    [self.socket once:@"server-send-message" callback:^(NSArray * data, SocketAckEmitter * ack) {
+        NSDictionary * dic = [data objectAtIndex:0];
+        NSMutableDictionary *statuscode = [dic objectForKey:@"statuscode"];
+        NSMutableDictionary *results = [dic objectForKey:@"results"];
+        NSString * stt = [NSString stringWithFormat:@"%@",statuscode];
+        if ([stt isEqual:@"200"]) {
+            [self addData:results];
+            [self listenServer];
+        }
     }];
+
+}
+
+-(void)addData:(NSDictionary*)data{
+    MessDto * message = [[MessDto alloc]init];
+    NSArray * info = [data valueForKey:@"results"];
+    message.userName = [info valueForKey:@"owner"];
+    message.mess = [info valueForKey:@"content"];
+    message.image = [info valueForKey:@"image"];
+    [_arrMess addObject:message];
+    [_tbvChatRoom reloadData];
 }
 
 
@@ -48,26 +77,25 @@
 #pragma mark - UITableView
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
-    //return chatData.count;
+    return _arrMess.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    RoomDto * room = [_arrListRoom objectAtIndex:indexPath.row];
+    
+    MessDto * mess = [_arrMess objectAtIndex:indexPath.row];
     
     NSString * cellID;
-    if (indexPath.row % 2 == 0) {
-        cellID = @"ChatLeftCell";
-        ChatLeftCell * cell = [_tbvChatRoom dequeueReusableCellWithIdentifier:cellID];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.lblMessager.text = @"asdasd asd";
-        return cell;
-    } else {
+    if ([mess.userName isEqual:_strUserName]) {
         cellID = @"ChatRightCell";
         ChatRightCell * cell = [_tbvChatRoom dequeueReusableCellWithIdentifier:cellID];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.lblMessager.text = @"asdasd asd asdsa asd sa  asd asd as a ";
+        cell.lblMessager.text = mess.mess;
         return cell;
-        
+    } else {
+        cellID = @"ChatLeftCell";
+        ChatLeftCell * cell = [_tbvChatRoom dequeueReusableCellWithIdentifier:cellID];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.lblMessager.text = mess.mess;
+        return cell;
     }
 }
 
@@ -92,7 +120,7 @@
 - (void)createTF {
     _tfMess.layer.borderColor = [UIColor whiteColor].CGColor;
     _tfMess.layer.borderWidth = 1.0f;
-    _tfMess.text = @"placeholder text here...";
+    _tfMess.text = @"Write your message...";
     _tfMess.textColor = [UIColor lightGrayColor];
 }
 
@@ -101,7 +129,7 @@
     dispatch_async(dispatch_get_main_queue(), ^(){
     [self animationViewWithconstant:215];
     });
-    if ([textView.text isEqualToString:@"placeholder text here..."]) {
+    if ([textView.text isEqualToString:@"Write your message..."]) {
         textView.text = @"";
         textView.textColor = [UIColor whiteColor]; //optional
     }
@@ -126,7 +154,12 @@
         [self.view layoutIfNeeded];
     }];
 }
+
 - (IBAction)onSelectedSend:(id)sender {
+    _Mess.image =@"abc";
+    _Mess.mess = _tfMess.text;
+    [_socket emit:@"client-send-message" withItems:@[_Mess.roomID,_Mess.userName,_Mess.mess,_Mess.image]];
+    [self listenServer];
 }
 
 - (IBAction)onSelectedProfile:(UIButton*)btn {

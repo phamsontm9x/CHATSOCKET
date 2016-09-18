@@ -20,10 +20,14 @@
 
 #import "API.h"
 
+@import SocketIO;
 
 @interface RoomListVC : UIViewController<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tbvRoomList;
 @property (weak, nonatomic) IBOutlet UILabel *lblRoomCount;
 @property (strong, nonatomic) NSMutableArray * arrListRoom;
+
+// socketIO
+@property SocketIOClient * socket;
 
 @end

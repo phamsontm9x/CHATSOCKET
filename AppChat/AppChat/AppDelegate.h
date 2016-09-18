@@ -16,6 +16,7 @@
 @property (strong ,nonatomic) NSString *strBrithday;
 @property (strong ,nonatomic) NSString *strUserID;
 @property (strong ,nonatomic) NSString *strEmail;
+@property (strong ,nonatomic) NSString *strRoomID;
 
 
 

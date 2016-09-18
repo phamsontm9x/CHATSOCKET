@@ -8,6 +8,9 @@
 
 #import "RoomListVC.h"
 
+#define server @"http://52.221.225.151:3000"
+
+
 @implementation RoomListVC {
     activityViewController *_activityView;
     UITapGestureRecognizer *_tap;
@@ -20,6 +23,7 @@
     _arrListRoom = [[NSMutableArray alloc]init];
     [self getDataListRoom];
     [self createActivity];
+    [self createSocketIo];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -99,13 +103,39 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     RoomDto * room = [_arrListRoom objectAtIndex:indexPath.row];
+    /// join room socket
+    NSString *user = ((AppDelegate*)[UIApplication sharedApplication].delegate).strUserID;
+    [_socket emit:@"client-join-room" withItems:@[user,room.idRoom]];
     
-    RoomChatVC *vRoomChat =[self.storyboard instantiateViewControllerWithIdentifier:@"RoomChatVC"];
-    vRoomChat.strTitle = room.name;
-    [self.navigationController pushViewController:vRoomChat animated:YES];
-
+    //
+    [_socket once:@"server-join-room" callback:^(NSArray * data, SocketAckEmitter * ack) {
+        NSDictionary * code = [data objectAtIndex:0];
+        NSMutableDictionary *statuscode = [code objectForKey:@"statuscode"];
+        NSMutableDictionary *results = [code objectForKey:@"results"];
+        NSString * stt = [NSString stringWithFormat:@"%@",statuscode];
+        NSString * mess ;
+        if ([stt isEqual: @"200"]) {
+            mess = [NSString stringWithFormat:@"%@",results];
+        } else {
+            mess = [NSString stringWithFormat:@"%@",results];
+        }
+        UIAlertController * alert =[UIAlertController alertControllerWithTitle:@"Warring"
+                                                                       message:mess
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *OK =[UIAlertAction actionWithTitle:@"OK"
+                                                    style:UIAlertActionStyleDefault
+                                                  handler:^(UIAlertAction * _Nonnull action) {
+                                                      if ([stt isEqual: @"200"]){
+                                                          ((AppDelegate*)[UIApplication sharedApplication].delegate).strRoomID = room.idRoom;
+                                                          RoomChatVC *vRoomChat =[self.storyboard instantiateViewControllerWithIdentifier:@"RoomChatVC"];
+                                                          vRoomChat.strTitle = room.name;
+                                                          [self.navigationController pushViewController:vRoomChat animated:YES];
+                                                      }
+                                                  }];
+        [alert addAction:OK];
+        [self presentViewController:alert animated:YES completion:nil];
+    }];
 }
 - (IBAction)onClickedCreateRoom:(id)sender {
     RoomDto * room = [[RoomDto alloc]init];
@@ -174,6 +204,15 @@
     ProfileVC *vProfile =[self.storyboard instantiateViewControllerWithIdentifier:@"ProfileVC"];
     [self.navigationController pushViewController:vProfile animated:YES];
 }
+
+#pragma mark - SocketIO
+
+- (void)createSocketIo {
+    NSURL* url = [[NSURL alloc] initWithString:server];
+    _socket = [[SocketIOClient alloc] initWithSocketURL:url config:@{@"log": @YES, @"forcePolling": @YES}];
+    [_socket connect];
+}
+
 
 
 @end

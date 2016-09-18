@@ -13,5 +13,6 @@
 @property (nonatomic, strong) NSString *userName;
 @property (nonatomic, strong) NSString *image;
 @property (nonatomic, strong) NSString *mess;
+@property (nonatomic, strong) NSString *roomID;
 
 @end

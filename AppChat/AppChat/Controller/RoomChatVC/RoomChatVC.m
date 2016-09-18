@@ -7,6 +7,7 @@
 //
 
 #import "RoomChatVC.h"
+#define server @"http://52.221.225.151:3000"
 
 @implementation RoomChatVC
 
@@ -16,12 +17,33 @@
     _tbvChatRoom.estimatedRowHeight =50;
     _lblTitle.text = _strTitle;
     [self createTF];
+    [self listenServer];
+    [self createSocketIo];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - SocketIO
+
+- (void)createSocketIo {
+    NSURL* url = [[NSURL alloc] initWithString:server];
+    _socket = [[SocketIOClient alloc] initWithSocketURL:url config:@{@"log": @YES, @"forcePolling": @YES}];
+    [_socket connect];
+    
+    [_socket emit:@"test" withItems:@[@"test"]];
+}
+
+-(void)listenServer{
+    [self.socket once:@"test" callback:^(NSArray * data, SocketAckEmitter * ack) {
+        [self listenServer];
+    }];
+}
+
+
+
 
 #pragma mark - UITableView
 
@@ -52,6 +74,11 @@
     
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 100.0f;
+}
+
+- (UIImage *)decodeBase64ToImage:(NSString *)strEncodeData {
+    NSData *data = [[NSData alloc]initWithBase64EncodedString:strEncodeData options:NSDataBase64DecodingIgnoreUnknownCharacters];
+    return [UIImage imageWithData:data];
 }
 
 #pragma mark ActionButton

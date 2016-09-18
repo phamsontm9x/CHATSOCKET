@@ -124,7 +124,7 @@
         alertController.modalInPopover = YES;
         UIDatePicker *picker = [[UIDatePicker alloc] init];
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-        [dateFormat setDateFormat:@"yyyy-MM-dd"];
+        [dateFormat setDateFormat:@"dd MM yyyy"];
         [picker setDatePickerMode:UIDatePickerModeDate];
         [alertController.view addSubview:picker];
         [alertController addAction:({

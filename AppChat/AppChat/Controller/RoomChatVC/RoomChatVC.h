@@ -22,4 +22,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *tfMess;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *botConstraint;
 
+// socketIO
+@property SocketIOClient * socket;
+
 @end

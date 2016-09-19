@@ -8,6 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+#import "activityViewController.h"
+#import "ProfileVC.h"
+
+#import "UserDto.h"
+#import "API.h"
+
+#import "AppDelegate.h"
+
 @interface UserOnlineVC : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *lblNumberUser;
+@property (weak, nonatomic) IBOutlet UITableView *tbvUserOnline;
+
+@property (strong, nonatomic) NSMutableArray* arrUser;
 
 @end

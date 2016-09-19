@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblRoomCount;
 @property (strong, nonatomic) NSMutableArray * arrListRoom;
 
+
 //// socketIO
 //@property SocketIOClient * socket;
 

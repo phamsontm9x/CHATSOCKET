@@ -28,6 +28,7 @@
 
 @property (weak, nonatomic) UIImage *imgUser;
 @property (nonatomic, strong) NSString *strImgae;
-
+@property (nonatomic, strong) NSString *check;
+@property (weak, nonatomic) IBOutlet UIButton *btnLogout;
 
 @end

@@ -209,6 +209,8 @@
 
 - (IBAction)onClickedProfile:(id)sender {
     ProfileVC *vProfile =[self.storyboard instantiateViewControllerWithIdentifier:@"ProfileVC"];
+    vProfile.email = ((AppDelegate*)[UIApplication sharedApplication].delegate).strEmail;
+    vProfile.check = @"YES";
     [self.navigationController pushViewController:vProfile animated:YES];
 }
 

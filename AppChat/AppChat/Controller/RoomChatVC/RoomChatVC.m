@@ -22,6 +22,7 @@
 //    [self createSocketIo];
     [self createTF];
     [self listenServer];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -178,6 +179,8 @@
     }];
 }
 
+#pragma mark - Action
+
 - (IBAction)onSelectedSend:(id)sender {
      MessDto * message = [[MessDto alloc]init];
     message.image = ((AppDelegate*)[UIApplication sharedApplication].delegate).strImage;
@@ -196,8 +199,13 @@
     ProfileVC *vProfile =[self.storyboard instantiateViewControllerWithIdentifier:@"ProfileVC"];
     MessDto * mess = [_arrMess objectAtIndex:btn.tag];
     vProfile.email = mess.userName;
+    vProfile.check = @"NO";
     [self.navigationController pushViewController:vProfile animated:YES];
 }
 
+- (IBAction)onClickedUserOnline:(id)sender {
+    UserOnlineVC *vProfile =[self.storyboard instantiateViewControllerWithIdentifier:@"UserOnlineVC"];
+    [self.navigationController pushViewController:vProfile animated:YES];
+}
 
 @end

@@ -8,11 +8,13 @@
 
 #import "ProfileVC.h"
 #define emailUser ((AppDelegate*)[UIApplication sharedApplication].delegate).strEmail
+#define imageUser ((AppDelegate*)[UIApplication sharedApplication].delegate).strImage
 #define server [NSString stringWithFormat:@"user/changebackground/%@",emailUser]
 
 @implementation ProfileVC {
     activityViewController *_activityView;
     BOOL isSelect;
+    NSString *strImageDefaut;
 }
 
 - (void)viewDidLoad {
@@ -28,10 +30,19 @@
             isSelect = NO;
         }
     }
+    if ([_check isEqual:@"NO"]) {
+        isSelect = NO;
+        _btnLogout.hidden = YES;
+    } else {
+        isSelect = YES;
+        _btnLogout.hidden = NO;
+    }
     _User = [[UserDto alloc]init];
-    
+    _strImgae = imageUser;
+    strImageDefaut = imageUser;
     [self createActivity];
     [self getDataProfile];
+
     
 }
 
@@ -95,42 +106,25 @@
 #pragma mark ActionButton 
 
 - (IBAction)onClickedBack:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    _check = @"Back";
+    if (isSelect == YES && ![_strImgae isEqual: strImageDefaut]) {
+        [self saveDataAPI];
+    } else {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (IBAction)onClickedLogout:(id)sender {
-
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    _check = @"Logout";
+    if (isSelect == YES && ![_strImgae isEqual: strImageDefaut]) {
+        [self saveDataAPI];
+    } else {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
 }
 - (IBAction)onClickedChangeIC:(UIButton *)sender {
     if (isSelect) {
         [self selectImageFromPhotoLibrary];
-        _strImgae = [self encodeToBase64String:_imgUser];
-        [_btnIcon setBackgroundImage:_imgUser forState:UIControlStateNormal];
-        [_btnIcon layoutIfNeeded];
-//        [self controlActivity:YES];
-//        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Change Avata"
-//                                                                       message:nil
-//                                                                preferredStyle:UIAlertControllerStyleAlert];
-//        UIAlertAction *btnCancel = [UIAlertAction actionWithTitle:@"Cancel"
-//                                                            style:UIAlertActionStyleDefault
-//                                                          handler:^(UIAlertAction * _Nonnull action) {
-//                                                              [_btnIcon setBackgroundImage:[UIImage imageNamed:@"ic_user"] forState:UIControlStateNormal];
-//                                                              [_btnIcon layoutIfNeeded];
-//                                                              [self controlActivity:NO];
-//                                                          }];
-//        UIAlertAction *btnOK = [UIAlertAction actionWithTitle:@"OK"
-//                                                        style:UIAlertActionStyleDefault
-//                                                      handler:^(UIAlertAction * _Nonnull action) {
-//                                                          [API getChangeBackgroundrocessAPI:server method:@"POST" header:nil body:_strImgae callback:^(BOOL success, id data) {
-//                                                              if (success) {
-//                                                                  [self controlActivity:NO];
-//                                                              }
-//                                                          }];
-//                                                      }];
-//        [alert addAction:btnCancel];
-//        [alert addAction:btnOK];
-//        [self presentViewController:alert animated:true completion:nil];
     }
 
 }
@@ -172,6 +166,14 @@
     [self presentViewController:alert animated:true completion:nil];
 }
 
+- (void)popView {
+    if ([_check isEqual:@"Back"]) {
+        [self.navigationController popViewControllerAnimated:YES];
+    } else {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+}
+
 
 - (void)showImagePickerController:(UIImagePickerControllerSourceType)sourceType {
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc]init];
@@ -190,6 +192,40 @@
     UIImage *image = info[UIImagePickerControllerEditedImage];
     _imgUser = image;
     [self dismissViewControllerAnimated:true completion:nil];
+    _strImgae = [self encodeToBase64String:_imgUser];
+    [_btnIcon setBackgroundImage:_imgUser forState:UIControlStateNormal];
+    [_btnIcon setNeedsLayout];
+}
+
+- (void)saveDataAPI {
+    [self controlActivity:YES];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Change Avata"
+                                                                   message:nil
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *btnCancel = [UIAlertAction actionWithTitle:@"Cancel"
+                                                        style:UIAlertActionStyleDefault
+                                                      handler:^(UIAlertAction * _Nonnull action) {
+                                                          [_btnIcon setBackgroundImage:[UIImage imageNamed:@"ic_user"] forState:UIControlStateNormal];
+                                                          [_btnIcon layoutIfNeeded];
+                                                          [self controlActivity:NO];
+                                                          [self popView];
+                                                      }];
+    UIAlertAction *btnOK = [UIAlertAction actionWithTitle:@"OK"
+                                                    style:UIAlertActionStyleDefault
+                                                  handler:^(UIAlertAction * _Nonnull action) {
+                                                      [API getChangeBackgroundrocessAPI:server method:@"POST" header:nil body:_strImgae callback:^(BOOL success, id data) {
+                                                          if (success) {
+                                                              dispatch_async(dispatch_get_main_queue(), ^(){
+                                                                  [self controlActivity:NO];
+                                                                  ((AppDelegate*)[UIApplication sharedApplication].delegate).strImage = _strImgae;
+                                                                   [self popView];
+                                                              });
+                                                          }
+                                                      }];
+                                                  }];
+    [alert addAction:btnCancel];
+    [alert addAction:btnOK];
+    [self presentViewController:alert animated:true completion:nil];
 }
 
 

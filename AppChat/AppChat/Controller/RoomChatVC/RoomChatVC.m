@@ -8,6 +8,7 @@
 
 #import "RoomChatVC.h"
 #define server @"http://52.221.225.151:3000"
+#define _socket ((AppDelegate*)[UIApplication sharedApplication].delegate).socket
 
 @implementation RoomChatVC {
 }
@@ -18,7 +19,7 @@
     _tbvChatRoom.estimatedRowHeight =50;
     _lblTitle.text = _strTitle;
     [self createData];
-    [self createSocketIo];
+//    [self createSocketIo];
     [self createTF];
     [self listenServer];
 }
@@ -37,22 +38,21 @@
 
 #pragma mark - SocketIO
 
-- (void)createSocketIo {
-    NSURL* url = [[NSURL alloc] initWithString:server];
-    _socket = [[SocketIOClient alloc] initWithSocketURL:url config:@{@"log": @YES, @"forcePolling": @YES}];
-    [_socket connect];
- //   [self listenServer];
-    float delayInSeconds = 2.0;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        [self.socket emit:@"client-join-room" withItems:@[_strUserId,_strRoomId]];
-    });
-
-}
+//- (void)createSocketIo {
+//    NSURL* url = [[NSURL alloc] initWithString:server];
+//    _socket = [[SocketIOClient alloc] initWithSocketURL:url config:@{@"log": @YES, @"forcePolling": @YES}];
+//    [_socket connect];
+// //   [self listenServer];
+//    float delayInSeconds = 3.0;
+//    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+//    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+//        [self.socket emit:@"client-join-room" withItems:@[_strUserId,_strRoomId]];
+//    });
+//
+//}
 
 -(void)listenServer{
-    [self.socket once:@"server-send-message" callback:^(NSArray * data, SocketAckEmitter * ack) {
-        [self listenServer];
+    [_socket once:@"server-send-message" callback:^(NSArray * data, SocketAckEmitter * ack) {
         NSDictionary * dic = [data objectAtIndex:0];
         NSMutableDictionary *statuscode = [dic objectForKey:@"statuscode"];
         NSMutableDictionary *results = [dic objectForKey:@"results"];
@@ -60,6 +60,7 @@
         if ([stt isEqual:@"200"]) {
             [self addData:results];
         }
+          [self listenServer];
     }];
 
 }
@@ -91,6 +92,12 @@
     if ([mess.userName isEqual:_strUserName]) {
         cellID = @"ChatRightCell";
         ChatRightCell * cell = [_tbvChatRoom dequeueReusableCellWithIdentifier:cellID];
+        if (![mess.image isEqual:@""]) {
+            UIImage * img = [self decodeBase64ToImage:mess.image];
+            [cell.btnIcon setBackgroundImage:img forState:UIControlStateNormal];
+        } else {
+            [cell.btnIcon setBackgroundImage:[UIImage imageNamed:@"ic_user"] forState:UIControlStateNormal];
+        }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.lblMessager.text = mess.mess;
         cell.tag = indexPath.row;
@@ -99,6 +106,12 @@
         cellID = @"ChatLeftCell";
         ChatLeftCell * cell = [_tbvChatRoom dequeueReusableCellWithIdentifier:cellID];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        if (![mess.image isEqual:@""]) {
+            UIImage * img = [self decodeBase64ToImage:mess.image];
+            [cell.btnIcon setBackgroundImage:img forState:UIControlStateNormal];
+        } else {
+            [cell.btnIcon setBackgroundImage:[UIImage imageNamed:@"ic_user"] forState:UIControlStateNormal];
+        }
         cell.lblMessager.text = mess.mess;
         cell.tag = indexPath.row;
         return cell;
@@ -113,6 +126,10 @@
 - (UIImage *)decodeBase64ToImage:(NSString *)strEncodeData {
     NSData *data = [[NSData alloc]initWithBase64EncodedString:strEncodeData options:NSDataBase64DecodingIgnoreUnknownCharacters];
     return [UIImage imageWithData:data];
+}
+
+- (NSString *)encodeToBase64String:(UIImage *)image {
+    return [UIImagePNGRepresentation(image) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
 }
 
 #pragma mark ActionButton
@@ -163,7 +180,7 @@
 
 - (IBAction)onSelectedSend:(id)sender {
      MessDto * message = [[MessDto alloc]init];
-    message.image =@"abc";
+    message.image = ((AppDelegate*)[UIApplication sharedApplication].delegate).strImage;
     message.mess = _tfMess.text;
     message.userName = _strUserName;
     message.roomID = _strRoomId;

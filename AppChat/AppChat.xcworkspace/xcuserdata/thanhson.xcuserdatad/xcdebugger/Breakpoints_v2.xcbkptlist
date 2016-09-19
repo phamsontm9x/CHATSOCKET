@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AppChat/Controller/RegisterVC/RegisterFinishVC.m"
-            timestampString = "495875865.646716"
+            filePath = "AppChat/Controller/ProfileVC/ProfileVC.m"
+            timestampString = "495989178.07103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
-            landmarkName = "-onClickedSelect:"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "-getDataProfile"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,43 +26,123 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AppChat/Controller/RegisterVC/RegisterFinishVC.m"
-            timestampString = "495875869.474944"
+            timestampString = "495988007.096345"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
-            landmarkName = "-onClickedSelect:"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "-onClickedRegister:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppChat/Controller/RegisterVC/RegisterVC.m"
+            timestampString = "495988050.98433"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "-onClickedNext:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppChat/Controller/RoomChatVC/RoomChatVC.m"
+            timestampString = "495988432.00587"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppChat/Controller/RoomChatVC/RoomChatVC.m"
+            timestampString = "495988432.774876"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppChat/Controller/ProfileVC/ProfileVC.m"
+            timestampString = "495989391.483642"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "-onClickedChangeIC:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/Socket.IO-Client-Swift/Source/SocketIOClient.swift"
+            timestampString = "495989754.913671"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "313"
+            endingLineNumber = "313"
+            landmarkName = "handleEvent(_:data:isInternalMessage:withAck:)"
             landmarkType = "5">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__36-[RegisterFinishVC onClickedSelect:]_block_invoke.133"
-                  moduleName = "AppChat"
+                  symbolName = "SocketIO.SocketIOClient.handleEvent (Swift.String, data : Swift.Array&lt;Swift.AnyObject&gt;, isInternalMessage : Swift.Bool, withAck : Swift.Int) -&gt; ()"
+                  moduleName = "SocketIO"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/thanhson/Desktop/ChatSocket/AppChat/AppChat/Controller/RegisterVC/RegisterFinishVC.m"
-                  timestampString = "495896413.055635"
+                  urlString = "file:///Users/thanhson/Desktop/ChatSocket/AppChat/Pods/Socket.IO-Client-Swift/Source/SocketIOClient.swift"
+                  timestampString = "495989904.994153"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "133"
-                  endingLineNumber = "133"
-                  offsetFromSymbolStart = "226">
+                  startingLineNumber = "313"
+                  endingLineNumber = "313"
+                  offsetFromSymbolStart = "821">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.139"
-                  moduleName = "AppChat"
+                  symbolName = "SocketIO.SocketIOClient.(handleEvent (Swift.String, data : Swift.Array&lt;Swift.AnyObject&gt;, isInternalMessage : Swift.Bool, withAck : Swift.Int) -&gt; ()).(closure #1)"
+                  moduleName = "SocketIO"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/thanhson/Desktop/ChatSocket/AppChat/AppChat/Controller/RegisterVC/RegisterFinishVC.m"
-                  timestampString = "495896413.056058"
+                  urlString = "file:///Users/thanhson/Desktop/ChatSocket/AppChat/Pods/Socket.IO-Client-Swift/Source/SocketIOClient.swift"
+                  timestampString = "495989904.994289"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "133"
-                  endingLineNumber = "133"
-                  offsetFromSymbolStart = "79">
+                  startingLineNumber = "316"
+                  endingLineNumber = "316"
+                  offsetFromSymbolStart = "44">
                </Location>
             </Locations>
          </BreakpointContent>

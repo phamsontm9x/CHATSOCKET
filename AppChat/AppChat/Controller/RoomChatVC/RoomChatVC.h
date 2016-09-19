@@ -32,7 +32,7 @@
 
 @property (strong, nonatomic) NSMutableArray *arrMess;
 
-// socketIO
-@property SocketIOClient * socket;
+//// socketIO
+//@property SocketIOClient * socket;
 
 @end

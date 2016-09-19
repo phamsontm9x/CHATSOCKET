@@ -19,8 +19,8 @@
     // Do any additional setup after loading the view, typically from a nib.
     [self createActivity];
     [self createTapdismissKeyboard];
-    _tfUserName.text=@"aabccdef2@gmail.com";
-    _tfPassword.text=@"Aa12345";
+    _tfUserName.text=@"thanhsoncun@gmail.com";
+    _tfPassword.text=@"Thanhson1";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,6 +62,7 @@
                 mess = @"Login success";
                  ((AppDelegate*)[UIApplication sharedApplication].delegate).strUserID = [data objectForKey:@"_id"];
                  ((AppDelegate*)[UIApplication sharedApplication].delegate).strEmail = [data objectForKey:@"email"];
+                ((AppDelegate*)[UIApplication sharedApplication].delegate).strImage = [data objectForKey:@"image"];
             } else {
                 mess =@"Username or password not correct";
             }

@@ -43,5 +43,10 @@ typedef void (^APICallback)(BOOL success, id data);
                           header:(NSDictionary*)headers
                         callback:(APICallback)callback;
 
++ (void)getChangeBackgroundrocessAPI:(NSString* )route
+                            method:(NSString* )method
+                            header:(NSDictionary*)headers
+                              body:(NSString*)body callback:(APICallback)callback;
+
 
 @end

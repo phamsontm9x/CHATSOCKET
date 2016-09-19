@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+@import SocketIO;
+
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -17,6 +19,10 @@
 @property (strong ,nonatomic) NSString *strUserID;
 @property (strong ,nonatomic) NSString *strEmail;
 @property (strong ,nonatomic) NSString *strRoomID;
+@property (strong ,nonatomic) NSString *strImage;
+
+// socketIO
+@property SocketIOClient * socket;
 
 
 

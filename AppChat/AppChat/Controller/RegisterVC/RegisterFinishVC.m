@@ -62,7 +62,7 @@
     _userRegister.email = _email;
     _userRegister.password = _password;
     _userRegister.phone = @"0978506324";
-    _userRegister.image = @"Sondeptrai";
+    _userRegister.image = @"";
     _userRegister.birthday = _tfBrithday.text;
     ([_tfGender isEqual:@"Male"])? (_userRegister.gender = @"false") : (_userRegister.gender = @"true");
     _userRegister.name = _tfFullName.text;

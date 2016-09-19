@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+#define server @"http://52.221.225.151:3000"
+
 @interface AppDelegate ()
 
 @end
@@ -17,7 +19,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self createSocketIo];
     return YES;
+}
+
+- (void)createSocketIo {
+    NSURL* url = [[NSURL alloc] initWithString:server];
+    _socket = [[SocketIOClient alloc] initWithSocketURL:url config:@{@"log": @YES, @"forcePolling": @YES}];
+    [_socket connect];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

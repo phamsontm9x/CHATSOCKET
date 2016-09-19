@@ -9,6 +9,7 @@
 #import "RoomListVC.h"
 
 #define server @"http://52.221.225.151:3000"
+#define _socket ((AppDelegate*)[UIApplication sharedApplication].delegate).socket
 
 
 @implementation RoomListVC {

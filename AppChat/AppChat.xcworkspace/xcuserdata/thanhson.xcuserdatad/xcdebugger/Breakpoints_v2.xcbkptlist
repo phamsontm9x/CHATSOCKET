@@ -9,38 +9,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AppChat/Controller/RegisterVC/RegisterFinishVC.m"
-            timestampString = "495988007.096345"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "-onClickedRegister:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AppChat/Controller/RegisterVC/RegisterVC.m"
-            timestampString = "495988050.98433"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "-onClickedNext:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "AppChat/Controller/RoomChatVC/RoomChatVC.m"
             timestampString = "495992332.571216"
             startingColumnNumber = "9223372036854775807"
@@ -105,13 +73,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AppChat/Controller/UserOnlineVC/UserOnlineVC.m"
-            timestampString = "495997026.371977"
+            filePath = "AppChat/Controller/RegisterVC/RegisterFinishVC.m"
+            timestampString = "496159608.70266"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "-onClickedBack:"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
+            landmarkName = "-Login"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

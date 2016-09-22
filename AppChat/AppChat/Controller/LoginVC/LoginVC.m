@@ -19,7 +19,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     [self createActivity];
     [self createTapdismissKeyboard];
-    _tfUserName.text=@"thanhsoncun@gmail.com";
+    _tfUserName.text=@"thanhsoncun1@gmail.com";
     _tfPassword.text=@"Thanhson1";
 }
 
@@ -86,7 +86,7 @@
 
 - (IBAction)onClickedRegister:(UIButton *)btn {
     RegisterVC *vRegister =[self.storyboard instantiateViewControllerWithIdentifier:@"RegisterVC"];
-    [self presentViewController:vRegister animated:NO completion:nil];
+    [self.navigationController pushViewController:vRegister animated:YES];
 }
 
 - (IBAction)onClickedForgotPassword:(UIButton *)btn {

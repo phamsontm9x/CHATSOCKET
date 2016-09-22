@@ -173,8 +173,8 @@
                                                                NSString * mess;
                                                                if (success) {
                                                                    mess = @"Create success";
-                                                                   [_arrListRoom addObject:room];
-                                                                
+                                                                   _arrListRoom = [[NSMutableArray alloc]init];
+                                                                   [self getDataListRoom];
                                                                } else {
                                                                    mess =@"User can only create one room";
                                                                }

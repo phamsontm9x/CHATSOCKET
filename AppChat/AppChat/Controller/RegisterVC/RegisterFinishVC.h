@@ -11,10 +11,19 @@
 #import "SignDto.h"
 
 #import "API.h"
+#import "AppDelegate.h"
+
+#import "UserDto.h"
+#import "LoginDto.h"
+#import "SignDto.h"
+
+#import "RoomListVC.h"
+
 
 #import "activityViewController.h"
 
 #define serverRegister @"user/register"
+#define serverLogin @"user/login"
 
 @interface RegisterFinishVC : UIViewController<UITextFieldDelegate>
 

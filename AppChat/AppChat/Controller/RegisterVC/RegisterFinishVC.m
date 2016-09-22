@@ -81,7 +81,9 @@
                                                                 preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *OK =[UIAlertAction actionWithTitle:@"OK"
                                                     style:UIAlertActionStyleDefault
-                                                  handler:nil];
+                                                  handler:^(UIAlertAction * _Nonnull action) {
+                                                      [self Login];
+                                                  }];
         [alert addAction:OK];
         [self presentViewController:alert animated:YES completion:nil];
         
@@ -149,6 +151,44 @@
 
 - (void)dismissKeyboard {
     [self.view endEditing:YES];
+}
+
+- (void)Login {
+    dispatch_async(dispatch_get_main_queue(), ^(){
+
+    [self controlActivity:YES];
+    });
+    LoginDto * loginDto = [[LoginDto alloc]init];
+    loginDto.email = _email;
+    loginDto.password = _password;
+    [API getLoginDtoprocessAPI:serverLogin method:@"POST" header:nil body:loginDto callback:^(BOOL success, id data) {
+        dispatch_async(dispatch_get_main_queue(), ^(){
+            [self controlActivity:NO];
+            NSString *mess ;
+            if (success) {
+                mess = @"Login success";
+                ((AppDelegate*)[UIApplication sharedApplication].delegate).strUserID = [data objectForKey:@"_id"];
+                ((AppDelegate*)[UIApplication sharedApplication].delegate).strEmail = [data objectForKey:@"email"];
+                ((AppDelegate*)[UIApplication sharedApplication].delegate).strImage = [data objectForKey:@"image"];
+            } else {
+                mess =@"Username or password not correct";
+            }
+            UIAlertController * alert =[UIAlertController alertControllerWithTitle:@"Warring"
+                                                                           message:mess
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *OK =[UIAlertAction actionWithTitle:@"OK"
+                                                        style:UIAlertActionStyleDefault
+                                                      handler:^(UIAlertAction * _Nonnull action) {
+                                                          if (success){
+                                                              RoomListVC *vRoomList =[self.storyboard instantiateViewControllerWithIdentifier:@"RoomListVC"];
+                                                              [self.navigationController pushViewController:vRoomList animated:YES];
+                                                          }
+                                                      }];
+            [alert addAction:OK];
+            [self presentViewController:alert animated:YES completion:nil];
+            
+        });
+    }];
 }
 
 @end

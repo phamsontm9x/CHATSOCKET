@@ -38,7 +38,7 @@
         vRegisterFinish.email = _tfUserName.text ;
         vRegisterFinish.password = _tfPassword.text;
     }
-    [self presentViewController:vRegisterFinish animated:NO completion:nil];
+    [self.navigationController pushViewController:vRegisterFinish animated:NO];
 }
 
 - (IBAction)onClickedHaveAcount:(UIButton *)btn {

@@ -34,10 +34,8 @@
 - (IBAction)onClickedNext:(UIButton *)btn {
     
     RegisterFinishVC *vRegisterFinish =[self.storyboard instantiateViewControllerWithIdentifier:@"RegisterFinishVC"];
-    if (_tfPassword.text == _tfReTypePassword.text) {
         vRegisterFinish.email = _tfUserName.text ;
         vRegisterFinish.password = _tfPassword.text;
-    }
     [self.navigationController pushViewController:vRegisterFinish animated:NO];
 }
 

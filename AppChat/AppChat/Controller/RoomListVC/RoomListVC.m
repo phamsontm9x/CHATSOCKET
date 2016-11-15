@@ -113,10 +113,13 @@
     RoomDto * room = [_arrListRoom objectAtIndex:indexPath.row];
     /// join room socket
     NSString *user = ((AppDelegate*)[UIApplication sharedApplication].delegate).strUserID;
+    
+    // client send requset join room
     [_socket emit:@"client-join-room" withItems:@[user,room.idRoom]];
     
-    //
     [_socket once:@"server-join-room" callback:^(NSArray * data, SocketAckEmitter * ack) {
+        
+        
         NSDictionary * code = [data objectAtIndex:0];
         NSMutableDictionary *statuscode = [code objectForKey:@"statuscode"];
         NSMutableDictionary *results = [code objectForKey:@"results"];

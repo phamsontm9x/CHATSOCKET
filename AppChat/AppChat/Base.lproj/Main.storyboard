@@ -253,9 +253,9 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="Ph4-kb-omx"/>
+                                <exclude reference="iIC-am-ZLb"/>
                                 <exclude reference="8Tg-KK-gjY"/>
                                 <exclude reference="Rzs-tl-KM9"/>
-                                <exclude reference="iIC-am-ZLb"/>
                                 <exclude reference="cte-O8-ZBg"/>
                             </mask>
                         </variation>
